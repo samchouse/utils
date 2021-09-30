@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES2021",
-    "rootDir": "./src",
+    "rootDir": "../",
     "outDir": "./dist",
     "module": "CommonJS",
     "moduleResolution": "node",
@@ -18,8 +18,7 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedIndexedAccess": true,
-    "noPropertyAccessFromIndexSignature": true
-  },
-  "include": ["src"],
-  "exclude": ["node_modules", "dist", "src/**/__tests__"]
+    "noPropertyAccessFromIndexSignature": true,
+    "noEmit": true
+  }
 }
