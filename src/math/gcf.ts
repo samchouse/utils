@@ -1,6 +1,6 @@
 const gcf = (...numbers: number[]) => {
   const calculate = (a: number, b: number): number => {
-    if (b === 0) return Math.sign(a) === -1 ? Math.abs(a) : a;
+    if (b === 0) return Math.abs(a);
 
     return calculate(b, a % b);
   };
