@@ -18,13 +18,13 @@ describe('test number generator', () => {
   });
 
   it('should throw error', () => {
-    expect(() => mockGenerateNumbers(1, 10, 1, false)).toThrow(
+    expect(() => generateNumbers(1, 10, 1, false)).toThrow(
       'Cannot have a bigger min than max'
     );
   });
 
   it('should throw error', () => {
-    expect(() => mockGenerateNumbers(11, 1, 10, false)).toThrow(
+    expect(() => generateNumbers(11, 1, 10, false)).toThrow(
       'Cannot have a bigger amount of possibilites than the range of numbers available'
     );
   });
