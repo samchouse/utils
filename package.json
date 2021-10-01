@@ -8,11 +8,12 @@
   "private": true,
   "scripts": {
     "prepare": "is-ci || husky install",
+    "shell": "node -i -e \"const Utils = require('./dist').default\"",
     "build": "rm -rf dist/ && tsc",
     "watch": "tsc --watch",
     "lint": "run-s lint:eslint lint:prettier",
     "lint:eslint": "eslint --ignore-path .gitignore --ext .js,.ts --fix .",
-    "lint:prettier": "prettier --write --ignore-path .gitignore *.json",
+    "lint:prettier": "prettier --write --ignore-path .gitignore \"*.json\" \"*.config.ts\" \"*.extends.ts\" \"**/*.spec.ts\"",
     "test": "jest"
   },
   "devDependencies": {
