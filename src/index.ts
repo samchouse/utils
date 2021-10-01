@@ -1,3 +1,7 @@
 import * as math from './math';
 
-export { math };
+const Utils = {
+  math
+};
+
+export default Utils;
