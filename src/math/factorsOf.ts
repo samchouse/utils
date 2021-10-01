@@ -1,19 +1,19 @@
-const factorsOf = (number: number, options?: { group: boolean }) => {
+const factorsOf = (sum: number, options?: { group: boolean }) => {
   const getFactors = (
-    number: number,
+    sum: number,
     options?: { group: boolean; isNegative?: boolean }
   ) => {
     const factorsNoGroups: number[] = [];
 
-    for (let i = 1; i <= number; i++) {
-      if (number % i === 0) {
+    for (let i = 1; i <= sum; i++) {
+      if (sum % i === 0) {
         factorsNoGroups.push(i);
       }
     }
 
     if (options?.group) {
       const factorsTwoDimensional: number[][] = factorsNoGroups.map(
-        (factor) => [factor, number / factor]
+        (factor) => [factor, sum / factor]
       );
 
       if (!options.isNegative) {
@@ -34,20 +34,20 @@ const factorsOf = (number: number, options?: { group: boolean }) => {
 
       return factorsTwoDimensional.map((factorArray) => [
         -factorArray[0]!,
-        factorArray[1]
+        factorArray[1]!
       ]);
     }
 
     return factorsNoGroups;
   };
 
-  if (Math.sign(number) === -1)
-    return getFactors(Math.abs(number), {
+  if (Math.sign(sum) === -1)
+    return getFactors(Math.abs(sum), {
       group: true,
       isNegative: true
     });
 
-  return getFactors(number, options);
+  return getFactors(sum, options);
 };
 
 export default factorsOf;
