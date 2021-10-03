@@ -1,5 +1,10 @@
 {
-  "ignorePatterns": ["*.config.ts", "*.extends.ts", "**/*.spec.ts"],
+  "ignorePatterns": [
+    "*.config.ts",
+    "*.extends.ts",
+    "**/*.spec.ts",
+    "**/*.d.ts"
+  ],
   "parser": "@typescript-eslint/parser",
   "extends": ["marine/prettier/node"],
   "rules": {
