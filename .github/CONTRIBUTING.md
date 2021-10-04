@@ -2,7 +2,7 @@
 
 > Please read the public [roadmap][roadmap] before contributing
 
-[roadmap]: https://github.com/Xenfo/utils/discussions/2
+[roadmap]: https://github.com/Xenfo/utils/discussions/3
 [fork]: https://github.com/Xenfo/utils/fork
 [pr]: https://github.com/Xenfo/utils/compare
 [code-of-conduct]: CODE_OF_CONDUCT.md
