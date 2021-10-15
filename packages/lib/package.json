@@ -6,5 +6,19 @@
   "repository": "https://github.com/Xenfo/utils.git",
   "author": "Samuel Corsi-House <chouse.samuel@gmail.com>",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "scripts": {
+    "shell": "node -i -e \"const Utils = require('./dist').default\"",
+    "build": "rm -rf dist/ && tsc",
+    "watch": "tsc --watch",
+    "test": "jest",
+    "lint": "run-s lint:eslint lint:prettier",
+    "lint:eslint": "eslint --ext .js,.ts --fix .",
+    "lint:prettier": "prettier --write \"*.json\" \"**/*.spec.ts\""
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
+    "@babel/preset-typescript": "^7.15.0"
+  }
 }
