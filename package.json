@@ -10,7 +10,8 @@
     "packages/*"
   ],
   "scripts": {
-    "prepare": "is-ci || husky install"
+    "prepare": "is-ci || husky install",
+    "commit": "cz"
   },
   "devDependencies": {
     "@commitlint/cli": "^13.2.1",
