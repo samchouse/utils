@@ -1,0 +1,10 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "Utilities for doing various annoying tasks",
+  "main": "index.js",
+  "repository": "https://github.com/Xenfo/utils.git",
+  "author": "Samuel Corsi-House <chouse.samuel@gmail.com>",
+  "license": "MIT",
+  "private": true
+}
