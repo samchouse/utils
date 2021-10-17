@@ -1,6 +1,6 @@
 {
   "extends": ["marine/prettier/node", "../../.eslintrc"],
   "parserOptions": {
-    "project": ["./tsconfig.*?.json"]
+    "project": ["tsconfig.*?.json"]
   }
 }
