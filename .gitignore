@@ -2,4 +2,6 @@
 yarn-error.log
 
 # ---------- Directories ----------
+.expo/
+coverage/
 node_modules/

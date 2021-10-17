@@ -1,14 +1,28 @@
 {
-  "name": "@xenfo/utils",
+  "name": "utils",
   "version": "1.0.0",
   "description": "Utilities for doing various annoying tasks",
   "repository": "https://github.com/Xenfo/utils.git",
   "author": "Samuel Corsi-House <chouse.samuel@gmail.com>",
   "license": "MIT",
   "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "**/react-native",
+      "**/react-native/**",
+      "**/react-native-scripts",
+      "**/react-native-scripts/**",
+      "**/expo",
+      "**/expo/**",
+      "**/expo-*",
+      "**/expo-*/**",
+      "**/@react-navigation/**",
+      "**/@xenfo/**"
+    ]
+  },
   "scripts": {
     "prepare": "is-ci || husky install",
     "commit": "cz"
@@ -16,7 +30,6 @@
   "devDependencies": {
     "@commitlint/cli": "^13.2.1",
     "@commitlint/config-conventional": "^13.2.0",
-    "@commitlint/config-lerna-scopes": "^13.2.0",
     "@commitlint/cz-commitlint": "^13.2.1",
     "@trivago/prettier-plugin-sort-imports": "^2.0.4",
     "@types/jest": "^27.0.2",
@@ -29,6 +42,7 @@
     "eslint-config-marine": "^9.0.6",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "globby": "11.0.4",
     "husky": "^7.0.2",
     "inquirer": "^8.2.0",
     "is-ci": "^3.0.0",

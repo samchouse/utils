@@ -13,8 +13,8 @@
     "watch": "tsc --watch",
     "test": "jest",
     "lint": "run-s lint:eslint lint:prettier",
-    "lint:eslint": "eslint --ext .js,.ts --fix .",
-    "lint:prettier": "prettier --write \"*.json\" \"**/*.spec.ts\""
+    "lint:eslint": "eslint --fix --ignore-path ../../.gitignore --ext .js,.ts .",
+    "lint:prettier": "prettier --write --ignore-path ../../.gitignore \"*.json\" \"**/*.spec.ts\""
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",

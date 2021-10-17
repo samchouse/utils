@@ -1,6 +1,10 @@
 {
+  "root": true,
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint"],
+  "parserOptions": {
+    "project": ["./tsconfig.base.json"]
+  },
   "rules": {
     "@typescript-eslint/no-unused-vars": [
       "error",
