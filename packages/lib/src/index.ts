@@ -7,5 +7,3 @@ const Utils = {
 };
 
 export default Utils;
-
-// #test
