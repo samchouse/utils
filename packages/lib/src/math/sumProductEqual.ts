@@ -1,4 +1,4 @@
-import { factorsOf } from '.';
+import factorsOf from './factorsOf';
 
 const sumProductEquals = (sum: number, product: number) => {
   const factors = factorsOf(product, { group: true }) as number[][];

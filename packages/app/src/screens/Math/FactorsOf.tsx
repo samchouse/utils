@@ -36,6 +36,7 @@ const GCF = () => {
             });
             Alert.alert(
               `The factors of ${number} are:`,
+              // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
               factors
                 .flat()
                 .sort((a, b) => a - b)

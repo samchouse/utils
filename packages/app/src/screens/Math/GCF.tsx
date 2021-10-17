@@ -33,6 +33,7 @@ const GCF = () => {
             const gcf = Utils.math
               .gcf(...number.split(', ').map((n) => parseInt(n, 10)))
               .toString();
+            // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
             Alert.alert(`The GCF is ${gcf}!`);
           }}
           activeOpacity={0.75}

@@ -32,6 +32,7 @@ const WTF = () => {
         />
         <TouchableOpacity
           onPress={() => {
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
             Clipboard.setString(Utils.text.wtf(text));
             Alert.alert('Copied text to clipboard!');
           }}
