@@ -4,8 +4,9 @@
     "composite": true,
     "declaration": true,
     "declarationMap": true,
-    "tsBuildInfoFile": "../../dist/lib/tsconfig.tsbuildinfo",
-    "noEmit": true
+    "rootDir": "./src",
+    "outDir": "../../dist/lib",
+    "tsBuildInfoFile": "../../dist/lib/tsconfig.tsbuildinfo"
   },
   "exclude": ["**/*.spec.ts", "**/__tests__", "*.config.ts", "*.extends.ts"]
 }
