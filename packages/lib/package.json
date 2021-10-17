@@ -1,5 +1,5 @@
 {
-  "name": "lib",
+  "name": "@xenfo/utils",
   "version": "1.0.0",
   "description": "Utilities for doing various annoying tasks",
   "main": "index.js",
