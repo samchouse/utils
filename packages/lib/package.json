@@ -8,10 +8,9 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "preinstall": "yarn build",
-    "shell": "node -i -e \"const Utils = require('./dist').default\"",
+    "shell": "node -i -e \"const Utils = require('../../dist/lib').default\"",
     "build": "rm -rf dist/ && tsc --project tsconfig.build.json",
-    "watch": "tsc --project tsconfig.build.json --watch",
+    "watch": "tsc --watch --project tsconfig.build.json",
     "test": "jest",
     "lint": "run-s lint:eslint lint:prettier",
     "lint:eslint": "eslint --fix --ignore-path ../../.gitignore --ext .js,.ts .",
