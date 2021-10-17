@@ -3191,11 +3191,6 @@
     expo-modules-autolinking "^0.0.3"
     invariant "^2.2.4"
 
-"@xenfo/utils@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@xenfo/utils/-/utils-1.0.0.tgz#f823bfab4ea40ce82f7dda4caab5d32059a88b98"
-  integrity sha512-aUYCFAPq2ZKZmlfAkk8GO7AsVfh9cnz+rIN9lGx2TvJ2/WYQlT6Uet+i9F8VCTx1a6DGGKOxHTApRDUMVXpmzw==
-
 "@xmldom/xmldom@~0.7.0":
   version "0.7.5"
   resolved "https://registry.yarnpkg.com/@xmldom/xmldom/-/xmldom-0.7.5.tgz#09fa51e356d07d0be200642b0e4f91d8e6dd408d"
