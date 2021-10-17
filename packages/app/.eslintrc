@@ -1,7 +1,7 @@
 {
   "extends": ["marine/prettier/react", "../../.eslintrc"],
   "parserOptions": {
-    "project": ["./tsconfig.*?.json"]
+    "project": ["./tsconfig.json"]
   },
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }]
