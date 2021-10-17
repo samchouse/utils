@@ -61,7 +61,7 @@ jobs:
         run: yarn -s --frozen-lockfile
 
       - name: Run Tests
-        run: yarn lerna run test -- --coverage
+        run: yarn lerna run test -- -- --coverage
 
       - name: Upload Coverage to Codecov
         uses: codecov/codecov-action@v2
