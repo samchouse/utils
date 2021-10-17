@@ -3,7 +3,9 @@
   "compilerOptions": {
     "composite": true,
     "declaration": true,
-    "declarationMap": true
+    "declarationMap": true,
+    "tsBuildInfoFile": "../../dist/lib/tsconfig.tsbuildinfo",
+    "noEmit": true
   },
-  "exclude": ["**/*.spec.ts"]
+  "exclude": ["**/*.spec.ts", "**/__tests__", "*.config.ts", "*.extends.ts"]
 }
