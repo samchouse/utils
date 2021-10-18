@@ -26,12 +26,12 @@ const GCF = () => {
           blurOnSubmit
           placeholder="Numbers"
           value={number}
-          onChangeText={(input) => setNumber(input.replace(/[^\d\s,]/g, ''))}
+          onChangeText={(input) => setNumber(input.replace(/[^\d\s]/g, ''))}
         />
         <TouchableOpacity
           onPress={() => {
             const gcf = Utils.math
-              .gcf(...number.split(', ').map((n) => parseInt(n, 10)))
+              .gcf(...number.split(' ').map((n) => parseInt(n, 10)))
               .toString();
             // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
             Alert.alert(`The GCF is ${gcf}!`);
