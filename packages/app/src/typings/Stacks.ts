@@ -15,6 +15,7 @@ export type MainStackParamList = {
 export type TextStackParamList = {
   Main: undefined;
   WTF: undefined;
+  Space: undefined;
 };
 
 export type MathStackParamList = {
