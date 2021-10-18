@@ -3,6 +3,7 @@ import React from 'react';
 
 import FactorsOf from '../screens/Math/FactorsOf';
 import GCF from '../screens/Math/GCF';
+import GenerateNumbers from '../screens/Math/GenerateNumbers';
 import Math from '../screens/Math/Math';
 import ProductSum from '../screens/Math/ProductSum';
 import Text from '../screens/Text/Text';
@@ -27,6 +28,7 @@ export const MathNavigator: React.FC = () => {
       <MathStack.Screen name="GCF" component={GCF} />
       <MathStack.Screen name="Factors Of" component={FactorsOf} />
       <MathStack.Screen name="Product Sum" component={ProductSum} />
+      <MathStack.Screen name="Generate Numbers" component={GenerateNumbers} />
     </MathStack.Navigator>
   );
 };

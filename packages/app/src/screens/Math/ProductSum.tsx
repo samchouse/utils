@@ -25,6 +25,7 @@ const ProductSum = () => {
         <TextInput
           style={styles.input}
           blurOnSubmit
+          keyboardType="numeric"
           placeholder="Product"
           value={product}
           // eslint-disable-next-line no-eval
@@ -33,6 +34,7 @@ const ProductSum = () => {
         <TextInput
           style={styles.input}
           blurOnSubmit
+          keyboardType="numeric"
           placeholder="Sum"
           value={sum}
           // eslint-disable-next-line no-eval
