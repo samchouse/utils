@@ -21,4 +21,5 @@ export type MathStackParamList = {
   Main: undefined;
   GCF: undefined;
   'Factors Of': undefined;
+  'Product Sum': undefined;
 };

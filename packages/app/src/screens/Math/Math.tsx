@@ -27,6 +27,13 @@ const Math: React.FC<MathNavigationProps> = ({
       >
         <RNText style={styles.text}>Factors Of</RNText>
       </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => navigation.push('Math', { screen: 'Product Sum' })}
+        activeOpacity={0.75}
+        style={styles.touchable}
+      >
+        <RNText style={styles.text}>Product Sum</RNText>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 };

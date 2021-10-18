@@ -17,7 +17,6 @@
     "lint:prettier": "prettier --write --ignore-path ../../.gitignore \"*.json\" \"**/*.spec.ts\""
   },
   "devDependencies": {
-    "@babel/core": "^7.15.8",
     "@babel/preset-env": "^7.15.8",
     "@babel/preset-typescript": "^7.15.0"
   }

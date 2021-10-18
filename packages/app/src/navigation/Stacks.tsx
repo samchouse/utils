@@ -4,6 +4,7 @@ import React from 'react';
 import FactorsOf from '../screens/Math/FactorsOf';
 import GCF from '../screens/Math/GCF';
 import Math from '../screens/Math/Math';
+import ProductSum from '../screens/Math/ProductSum';
 import Text from '../screens/Text/Text';
 import WTF from '../screens/Text/WTF';
 import { MathStackParamList, TextStackParamList } from '../typings';
@@ -25,6 +26,7 @@ export const MathNavigator: React.FC = () => {
       <MathStack.Screen name="Main" component={Math} />
       <MathStack.Screen name="GCF" component={GCF} />
       <MathStack.Screen name="Factors Of" component={FactorsOf} />
+      <MathStack.Screen name="Product Sum" component={ProductSum} />
     </MathStack.Navigator>
   );
 };
