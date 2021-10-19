@@ -34,7 +34,7 @@ jobs:
         run: yarn -s --frozen-lockfile
 
       - name: Publish App
-        run: yarn lerna exec --scope @utils/app expo publish
+        run: yarn lerna exec --scope @utils/app yarn expo publish
 
   # build_ios:
   #   name: Build iOS
@@ -59,6 +59,57 @@ jobs:
 
   #     - name: Install Dependencies
   #       run: yarn -s --frozen-lockfile
+
+  build_ios:
+    name: Build iOS
+    runs-on: macos-latest
+    needs: [publish]
+
+    strategy:
+      matrix:
+        node-version: [16.6.2]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+
+      - run: sudo xcodebuild -license accept
+
+      - uses: actions/cache@v2
+        id: turtle-cache
+        with:
+          path: ~/.turtle
+          key: ${{ runner.os }}-turtle
+
+      - name: Install Dependencies
+        run: |
+          npm i -g turtle-cli
+          yarn -s --frozen-lockfile
+
+      - run: cd packages/app
+
+      - name: Setup Turtle
+        run: turtle setup:android --sdk-version ${{ env.EXPO_SDK_VERSION }}
+
+      - name: Build App
+        run: |
+          echo ${{ secrets.EXPO_ANDROID_KEYSTORE_BASE64 }} > ~/utils.jks.base64
+          base64 --decode ~/utils.jks.base64 > ~/utils.jks
+          turtle build:android -t apk -o ~/utils.apk --keystore-path ~/utils.jks --keystore-alias ${{ secrets.EXPO_ANDROID_KEYSTORE_ALIAS }}
+
+      - name: Archive APK build
+        uses: actions/upload-artifact@v2
+        with:
+          name: utils.apk
+          path: ~/utils.apk
 
   build_android:
     name: Build Android
