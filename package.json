@@ -20,7 +20,8 @@
       "**/expo-*",
       "**/expo-*/**",
       "**/@react-navigation/**",
-      "**/@utils/lib"
+      "**/@utils/lib",
+      "**/@utils/lib/**"
     ]
   },
   "scripts": {
