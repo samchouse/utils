@@ -3,7 +3,10 @@ import React from 'react';
 
 import FactorsOf from '../screens/Math/FactorsOf';
 import GCF from '../screens/Math/GCF';
+import GenerateNumbers from '../screens/Math/GenerateNumbers';
 import Math from '../screens/Math/Math';
+import ProductSum from '../screens/Math/ProductSum';
+import Space from '../screens/Text/Space';
 import Text from '../screens/Text/Text';
 import WTF from '../screens/Text/WTF';
 import { MathStackParamList, TextStackParamList } from '../typings';
@@ -14,6 +17,7 @@ export const TextNavigator: React.FC = () => {
     <TextStack.Navigator screenOptions={{ headerShown: false }}>
       <TextStack.Screen name="Main" component={Text} />
       <TextStack.Screen name="WTF" component={WTF} />
+      <TextStack.Screen name="Space" component={Space} />
     </TextStack.Navigator>
   );
 };
@@ -25,6 +29,8 @@ export const MathNavigator: React.FC = () => {
       <MathStack.Screen name="Main" component={Math} />
       <MathStack.Screen name="GCF" component={GCF} />
       <MathStack.Screen name="Factors Of" component={FactorsOf} />
+      <MathStack.Screen name="Product Sum" component={ProductSum} />
+      <MathStack.Screen name="Generate Numbers" component={GenerateNumbers} />
     </MathStack.Navigator>
   );
 };

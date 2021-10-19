@@ -3,13 +3,6 @@ import factorsOf from './factorsOf';
 import gcf from './gcf';
 import generateNumbers from './generateNumbers';
 import perfectSquare from './perfectSquare';
-import sumProductEqual from './sumProductEqual';
+import productSum from './productSum';
 
-export {
-  gcf,
-  factorsOf,
-  generateNumbers,
-  sumProductEqual,
-  perfectSquare,
-  algebra
-};
+export { gcf, factorsOf, generateNumbers, productSum, perfectSquare, algebra };

@@ -1,5 +1,5 @@
 {
-  "name": "@xenfo/utils",
+  "name": "@utils/lib",
   "version": "1.0.0",
   "description": "Utilities for doing various annoying tasks",
   "main": "./src/index.ts",
@@ -17,7 +17,6 @@
     "lint:prettier": "prettier --write --ignore-path ../../.gitignore \"*.json\" \"**/*.spec.ts\""
   },
   "devDependencies": {
-    "@babel/core": "^7.15.8",
     "@babel/preset-env": "^7.15.8",
     "@babel/preset-typescript": "^7.15.0"
   }

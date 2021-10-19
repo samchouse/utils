@@ -1,6 +1,6 @@
 import factorsOf from './factorsOf';
 
-const sumProductEquals = (sum: number, product: number) => {
+const productSum = (product: number, sum: number) => {
   const factors = factorsOf(product, { group: true }) as number[][];
 
   if (Math.sign(sum) === -1 && Math.sign(product) === 1)
@@ -13,4 +13,4 @@ const sumProductEquals = (sum: number, product: number) => {
   )[0];
 };
 
-export default sumProductEquals;
+export default productSum;

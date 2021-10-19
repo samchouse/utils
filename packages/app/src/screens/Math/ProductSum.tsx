@@ -11,8 +11,9 @@ import {
   Alert
 } from 'react-native';
 
-const GCF = () => {
-  const [number, setNumber] = useState('');
+const ProductSum = () => {
+  const [product, setProduct] = useState('');
+  const [sum, setSum] = useState('');
 
   return (
     <TouchableWithoutFeedback
@@ -24,17 +25,35 @@ const GCF = () => {
         <TextInput
           style={styles.input}
           blurOnSubmit
-          placeholder="Numbers"
-          value={number}
-          onChangeText={(input) => setNumber(input.replace(/[^\d\s]/g, ''))}
+          keyboardType="numeric"
+          placeholder="Product"
+          value={product}
+          // eslint-disable-next-line no-eval
+          onChangeText={(input) => setProduct(eval(input).toString() as string)}
+        />
+        <TextInput
+          style={styles.input}
+          blurOnSubmit
+          keyboardType="numeric"
+          placeholder="Sum"
+          value={sum}
+          // eslint-disable-next-line no-eval
+          onChangeText={(input) => setSum(eval(input).toString() as string)}
         />
         <TouchableOpacity
           onPress={() => {
-            const gcf = Utils.math
-              .gcf(...number.split(' ').map((n) => parseInt(n, 10)))
-              .toString();
+            const productSum = Utils.math.productSum(
+              parseInt(product, 10),
+              parseInt(sum, 10)
+            );
             // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-            Alert.alert(`The GCF is ${gcf}!`);
+            Alert.alert(
+              productSum.length
+                ? `The two factors are ${productSum
+                    .sort((a, b) => a - b)
+                    .join(', ')}`
+                : 'There are no factors for this product and sum'
+            );
           }}
           activeOpacity={0.75}
           style={styles.touchable}
@@ -46,7 +65,7 @@ const GCF = () => {
   );
 };
 
-export default GCF;
+export default ProductSum;
 
 const styles = StyleSheet.create({
   container: {

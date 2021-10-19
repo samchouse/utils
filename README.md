@@ -46,8 +46,8 @@ yarn
 ### Via CLI
 
 ```sh
-yarn lerna run --scope @xenfo/utils build
-yarn lerna exec --scope @xenfo/utils yarn shell
+yarn lerna run --scope @utils/lib build
+yarn lerna exec --scope @utils/lib yarn shell
 ```
 
 Now you will be in an interactive shell with the `Utils` object. Use the `Utils` object by doing `Utils.subSection.method`, eg: `Utils.math.gcf(12, 16)`.
@@ -59,7 +59,7 @@ To exit the interactive shell, press <kbd>CTRL</kbd>+<kbd>D</kbd>.
 Go to [Expo Go](https://expo.dev/tools) and scroll to the `Run your project with Expo Go`, then download the app for your platform.
 
 ```sh
-yarn lerna exec --scope app yarn start
+yarn lerna exec --scope @utils/app yarn start
 ```
 
 On iOS: Scan the QR code in your terminal or in your browser using your camera.

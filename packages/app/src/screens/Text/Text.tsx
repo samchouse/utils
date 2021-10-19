@@ -20,6 +20,13 @@ const Text: React.FC<TextNavigationProps> = ({
       >
         <RNText style={styles.text}>WTF</RNText>
       </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => navigation.push('Text', { screen: 'Space' })}
+        activeOpacity={0.75}
+        style={styles.touchable}
+      >
+        <RNText style={styles.text}>Space</RNText>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 };

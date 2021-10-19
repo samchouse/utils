@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  TouchableOpacity,
-  StyleSheet,
-  Text as RNText
-} from 'react-native';
+import { SafeAreaView, TouchableOpacity, StyleSheet, Text } from 'react-native';
 
 import { MathNavigationProps } from '../../typings';
 
@@ -18,14 +13,28 @@ const Math: React.FC<MathNavigationProps> = ({
         activeOpacity={0.75}
         style={styles.touchable}
       >
-        <RNText style={styles.text}>GCF</RNText>
+        <Text style={styles.text}>GCF</Text>
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => navigation.push('Math', { screen: 'Factors Of' })}
         activeOpacity={0.75}
         style={styles.touchable}
       >
-        <RNText style={styles.text}>Factors Of</RNText>
+        <Text style={styles.text}>Factors Of</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => navigation.push('Math', { screen: 'Product Sum' })}
+        activeOpacity={0.75}
+        style={styles.touchable}
+      >
+        <Text style={styles.text}>Product Sum</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => navigation.push('Math', { screen: 'Generate Numbers' })}
+        activeOpacity={0.75}
+        style={styles.touchable}
+      >
+        <Text style={styles.text}>Generate Numbers</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );

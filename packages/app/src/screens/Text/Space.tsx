@@ -1,4 +1,5 @@
 import Utils from '@utils/lib';
+import * as Clipboard from 'expo-clipboard';
 import React, { useState } from 'react';
 import {
   StyleSheet,
@@ -11,8 +12,8 @@ import {
   Alert
 } from 'react-native';
 
-const GCF = () => {
-  const [number, setNumber] = useState('');
+const Space = () => {
+  const [text, setText] = useState('');
 
   return (
     <TouchableWithoutFeedback
@@ -24,17 +25,16 @@ const GCF = () => {
         <TextInput
           style={styles.input}
           blurOnSubmit
-          placeholder="Numbers"
-          value={number}
-          onChangeText={(input) => setNumber(input.replace(/[^\d\s]/g, ''))}
+          multiline
+          placeholder="Text"
+          value={text}
+          onChangeText={(input) => setText(input)}
         />
         <TouchableOpacity
           onPress={() => {
-            const gcf = Utils.math
-              .gcf(...number.split(' ').map((n) => parseInt(n, 10)))
-              .toString();
-            // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-            Alert.alert(`The GCF is ${gcf}!`);
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+            Clipboard.setString(Utils.text.space(text));
+            Alert.alert('Copied text to clipboard!');
           }}
           activeOpacity={0.75}
           style={styles.touchable}
@@ -46,7 +46,7 @@ const GCF = () => {
   );
 };
 
-export default GCF;
+export default Space;
 
 const styles = StyleSheet.create({
   container: {
