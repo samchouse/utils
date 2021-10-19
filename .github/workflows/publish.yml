@@ -4,6 +4,7 @@ on:
   workflow_dispatch:
 
 env:
+  EXPO_CLI_VERSION: 4.12.3
   EXPO_SDK_VERSION: 42.0.0
   EXPO_USERNAME: ${{ secrets.EXPO_USERNAME }}
   EXPO_PASSWORD: ${{ secrets.EXPO_PASSWORD }}
@@ -15,6 +16,7 @@ jobs:
   publish:
     name: Publish
     runs-on: ubuntu-latest
+    if: ${{ !env.ACT }}
 
     strategy:
       matrix:
@@ -30,7 +32,7 @@ jobs:
 
       - uses: expo/expo-github-action@v6
         with:
-          expo-version: ${{ env.EXPO_SDK_VERSION }}
+          expo-version: ${{ env.EXPO_CLI_VERSION }}
           token: ${{ secrets.EXPO_TOKEN }}
 
       - name: Install Dependencies
@@ -66,7 +68,7 @@ jobs:
 
   #     - uses: expo/expo-github-action@v6
   #       with:
-  #         expo-version: ${{ env.EXPO_SDK_VERSION }}
+  #         expo-version: ${{ env.EXPO_CLI_VERSION }}
   #         token: ${{ secrets.EXPO_TOKEN }}
 
   #     - run: ./.github/scripts/decrypt.sh
@@ -103,6 +105,12 @@ jobs:
         java-version: [8]
 
     steps:
+      - name: Install GPG
+        if: ${{ env.ACT }}
+        run: |
+          apt update
+          apt install -y gpg
+
       - uses: actions/checkout@v2
 
       - name: Set up Node.js ${{ matrix.node-version }}
@@ -118,7 +126,7 @@ jobs:
 
       - uses: expo/expo-github-action@v6
         with:
-          expo-version: ${{ env.EXPO_SDK_VERSION }}
+          expo-version: ${{ env.EXPO_CLI_VERSION }}
           token: ${{ secrets.EXPO_TOKEN }}
 
       - run: ./.github/scripts/decrypt.sh
