@@ -4,7 +4,7 @@ const space = (text: string) => {
     final += `${char} `;
   }
 
-  return final;
+  return final.trimEnd();
 };
 
 export default space;

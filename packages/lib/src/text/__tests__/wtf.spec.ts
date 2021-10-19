@@ -1,6 +1,6 @@
 import { wtf } from '../';
 
-describe('test gcf calculator', () => {
+describe('test wtf util', () => {
   it('should respond with valid wtf', () => {
     const result = wtf('Why is wtf a thing? Just because!');
 

@@ -2,25 +2,25 @@ import { productSum } from '..';
 
 describe('test productSum calculator', () => {
   it('should answer with right productSum', () => {
-    const result = productSum(14, 40);
+    const result = productSum(40, 14);
 
     expect(result).toEqual([4, 10]);
   });
 
   it('should answer with right productSum', () => {
-    const result = productSum(-8, 16);
+    const result = productSum(16, -8);
 
     expect(result).toEqual([-4, -4]);
   });
 
   it('should answer with right productSum', () => {
-    const result = productSum(4, -32);
+    const result = productSum(-32, 4);
 
     expect(result).toEqual([-4, 8]);
   });
 
   it('should answer with right productSum', () => {
-    const result = productSum(-4, -32);
+    const result = productSum(-32, -4);
 
     expect(result).toEqual([-8, 4]);
   });

@@ -3,5 +3,11 @@
   "compilerOptions": {
     "composite": true
   },
-  "include": ["**/*.spec.ts", "**/*.d.ts", "*.config.ts", "*.extends.ts"]
+  "include": [
+    "**/*.ts",
+    "**/*.spec.ts",
+    "**/*.d.ts",
+    "*.config.ts",
+    "*.extends.ts"
+  ]
 }
