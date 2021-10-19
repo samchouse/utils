@@ -16,7 +16,6 @@ jobs:
   publish:
     name: Publish
     runs-on: ubuntu-latest
-    if: ${{ !env.ACT }}
 
     strategy:
       matrix:
@@ -105,12 +104,6 @@ jobs:
         java-version: [8]
 
     steps:
-      - name: Install GPG
-        if: ${{ env.ACT }}
-        run: |
-          apt update
-          apt install -y gpg
-
       - uses: actions/checkout@v2
 
       - name: Set up Node.js ${{ matrix.node-version }}
