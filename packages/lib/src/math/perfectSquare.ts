@@ -8,7 +8,7 @@ const perfectSquare = (middle: number, ...nums: number[]) => {
       message: `Cannot square number(s) ${squares
         .map((s, i) => (s % 1 === 0 ? undefined : i))
         .map((i) => (typeof i === 'number' ? nums[i] : undefined))
-        .filter((n) => n !== undefined)
+        .filter(Boolean)
         .join(', ')}`
     };
 
