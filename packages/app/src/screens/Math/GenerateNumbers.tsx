@@ -1,4 +1,4 @@
-import Utils from '@xenfo/utils';
+import Utils from '@utils/lib';
 import React, { useState } from 'react';
 import {
   StyleSheet,

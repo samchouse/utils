@@ -1,5 +1,5 @@
 {
-  "name": "@xenfo/utils",
+  "name": "@utils/lib",
   "version": "1.0.0",
   "description": "Utilities for doing various annoying tasks",
   "main": "./src/index.ts",
