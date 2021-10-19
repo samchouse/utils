@@ -26,7 +26,8 @@
   },
   "scripts": {
     "prepare": "is-ci || husky install",
-    "commit": "cz"
+    "commit": "cz",
+    "test:ci": "act workflow_dispatch --secret-file .github/secrets/act.secrets"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
