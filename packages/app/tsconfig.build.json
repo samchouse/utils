@@ -3,7 +3,6 @@
   "compilerOptions": {
     "composite": true,
     "strict": true,
-    "allowJs": true,
     "esModuleInterop": true,
     "jsx": "react-native",
     "lib": ["DOM", "ESNext"],

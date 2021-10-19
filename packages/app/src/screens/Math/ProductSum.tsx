@@ -48,7 +48,7 @@ const ProductSum = () => {
             );
             // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
             Alert.alert(
-              productSum
+              productSum.length
                 ? `The two factors are ${productSum
                     .sort((a, b) => a - b)
                     .join(', ')}`
