@@ -1,6 +1,9 @@
 name: Publish
 
 on:
+  pull_request:
+    branches:
+      - master
   workflow_dispatch:
 
 env:
@@ -10,32 +13,38 @@ env:
   EXPO_ANDROID_KEY_PASSWORD: ${{ secrets.EXPO_ANDROID_KEY_PASSWORD }}
 
 jobs:
-  publish:
-    name: Publish
+  test:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [16.6.2]
-
     steps:
-      - uses: actions/checkout@v2
+      - run: echo worked
 
-      - name: Set up Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
+  # publish:
+  #   name: Publish
+  #   runs-on: ubuntu-latest
 
-      - uses: expo/expo-github-action@v6
-        with:
-          expo-version: ${{ env.EXPO_SDK_VERSION }}
-          token: ${{ secrets.EXPO_TOKEN }}
+  #   strategy:
+  #     matrix:
+  #       node-version: [16.6.2]
 
-      - name: Install Dependencies
-        run: yarn -s --frozen-lockfile
+  #   steps:
+  #     - uses: actions/checkout@v2
 
-      - name: Publish App
-        run: yarn lerna exec --scope @utils/app yarn expo publish
+  #     - name: Set up Node.js ${{ matrix.node-version }}
+  #       uses: actions/setup-node@v2
+  #       with:
+  #         node-version: ${{ matrix.node-version }}
+
+  #     - uses: expo/expo-github-action@v6
+  #       with:
+  #         expo-version: ${{ env.EXPO_SDK_VERSION }}
+  #         token: ${{ secrets.EXPO_TOKEN }}
+
+  #     - name: Install Dependencies
+  #       run: yarn -s --frozen-lockfile
+
+  #     - name: Publish App
+  #       run: yarn lerna exec --scope @utils/app yarn expo publish
 
   # build_ios:
   #   name: Build iOS
@@ -91,55 +100,55 @@ jobs:
   #         name: utils.ipa
   #         path: ~/utils.ipa
 
-  build_android:
-    name: Build Android
-    runs-on: ubuntu-latest
-    needs: [publish]
+  # build_android:
+  #   name: Build Android
+  #   runs-on: ubuntu-latest
+  #   needs: [publish]
 
-    strategy:
-      matrix:
-        node-version: [16.6.2]
-        java-version: [8]
+  #   strategy:
+  #     matrix:
+  #       node-version: [16.6.2]
+  #       java-version: [8]
 
-    steps:
-      - uses: actions/checkout@v2
+  #   steps:
+  #     - uses: actions/checkout@v2
 
-      - name: Set up Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
+  #     - name: Set up Node.js ${{ matrix.node-version }}
+  #       uses: actions/setup-node@v2
+  #       with:
+  #         node-version: ${{ matrix.node-version }}
 
-      - name: Set up Java ${{ matrix.java-version }}
-        uses: actions/setup-java@v2
-        with:
-          distribution: zulu
-          java-version: ${{ matrix.java-version }}
+  #     - name: Set up Java ${{ matrix.java-version }}
+  #       uses: actions/setup-java@v2
+  #       with:
+  #         distribution: zulu
+  #         java-version: ${{ matrix.java-version }}
 
-      - run: ./.github/scripts/decrypt.sh
-        env:
-          DECRYPT_PASSWORD: ${{ secrets.DECRYPT_PASSWORD }}
+  #     - run: ./.github/scripts/decrypt.sh
+  #       env:
+  #         DECRYPT_PASSWORD: ${{ secrets.DECRYPT_PASSWORD }}
 
-      - uses: actions/cache@v2
-        id: turtle-cache
-        with:
-          path: ~/.turtle
-          key: ${{ runner.os }}-turtle
+  #     - uses: actions/cache@v2
+  #       id: turtle-cache
+  #       with:
+  #         path: ~/.turtle
+  #         key: ${{ runner.os }}-turtle
 
-      - name: Install Dependencies
-        run: |
-          npm i -g turtle-cli
-          yarn -s --frozen-lockfile
+  #     - name: Install Dependencies
+  #       run: |
+  #         npm i -g turtle-cli
+  #         yarn -s --frozen-lockfile
 
-      - run: cd packages/app
+  #     - run: cd packages/app
 
-      - name: Setup Turtle
-        run: turtle setup:android --sdk-version ${{ env.EXPO_SDK_VERSION }}
+  #     - name: Setup Turtle
+  #       run: turtle setup:android --sdk-version ${{ env.EXPO_SDK_VERSION }}
 
-      - name: Build App
-        run: turtle build:android -t apk -o ~/utils.apk --keystore-path ./.github/secrets/utils.jks --keystore-alias ${{ secrets.EXPO_ANDROID_KEYSTORE_ALIAS }}
+  #     - name: Build App
+  #       run: turtle build:android -t apk -o ~/utils.apk --keystore-path ./.github/secrets/utils.jks --keystore-alias ${{ secrets.EXPO_ANDROID_KEYSTORE_ALIAS }}
 
-      - name: Archive APK
-        uses: actions/upload-artifact@v2
-        with:
-          name: utils.apk
-          path: ~/utils.apk
+  #     - name: Archive APK
+  #       uses: actions/upload-artifact@v2
+  #       with:
+  #         name: utils.apk
+  #         path: ~/utils.apk
