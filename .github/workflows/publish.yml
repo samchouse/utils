@@ -33,7 +33,7 @@ jobs:
         with:
           token: ${{ secrets.EXPO_TOKEN }}
           expo-version: ${{ env.EXPO_CLI_VERSION }}
- 
+
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -155,19 +155,19 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          npm i -g turtle-cli
+          yarn global add turtle-cli
           yarn -s --frozen-lockfile --prefer-offline
 
-      - run: cd packages/app
+      - run: cd packages/app && echo $PWD
 
       - name: Setup Turtle
         run: turtle setup:android --sdk-version ${{ env.EXPO_SDK_VERSION }}
 
-      # - name: Build App
-      #   run: turtle build:android -t apk -o ~/utils.apk --keystore-path ./.github/secrets/utils.jks --keystore-alias ${{ secrets.EXPO_ANDROID_KEYSTORE_ALIAS }}
+      - name: Build App
+        run: turtle build:android -t apk -o ~/utils.apk --keystore-path ./.github/secrets/utils.jks --keystore-alias ${{ secrets.EXPO_ANDROID_KEYSTORE_ALIAS }}
 
-      # - name: Archive APK
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #     name: utils.apk
-      #     path: ~/utils.apk
+      - name: Archive APK
+        uses: actions/upload-artifact@v2
+        with:
+          name: utils.apk
+          path: ~/utils.apk
