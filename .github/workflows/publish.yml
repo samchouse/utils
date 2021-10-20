@@ -163,11 +163,11 @@ jobs:
       - name: Setup Turtle
         run: turtle setup:android --sdk-version ${{ env.EXPO_SDK_VERSION }}
 
-      - name: Build App
-        run: turtle build:android -t apk -o ~/utils.apk --keystore-path ./.github/secrets/utils.jks --keystore-alias ${{ secrets.EXPO_ANDROID_KEYSTORE_ALIAS }}
+      # - name: Build App
+      #   run: turtle build:android -t apk -o ~/utils.apk --keystore-path ./.github/secrets/utils.jks --keystore-alias ${{ secrets.EXPO_ANDROID_KEYSTORE_ALIAS }}
 
-      - name: Archive APK
-        uses: actions/upload-artifact@v2
-        with:
-          name: utils.apk
-          path: ~/utils.apk
+      # - name: Archive APK
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: utils.apk
+      #     path: ~/utils.apk
