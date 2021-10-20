@@ -31,13 +31,21 @@ jobs:
 
       - uses: expo/expo-github-action@v6
         with:
-          expo-version: ${{ env.EXPO_CLI_VERSION }}
           token: ${{ secrets.EXPO_TOKEN }}
+          expo-version: ${{ env.EXPO_CLI_VERSION }}
+ 
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install Dependencies
-        run: |
-          npm i -g lerna
-          lerna bootstrap
+        run: yarn -s --frozen-lockfile --prefer-offline
 
       - name: Publish App
         run: yarn lerna exec --scope @utils/app yarn expo publish
@@ -121,17 +129,34 @@ jobs:
 
       - uses: expo/expo-github-action@v6
         with:
-          expo-version: ${{ env.EXPO_CLI_VERSION }}
+          expo-cache: true
           token: ${{ secrets.EXPO_TOKEN }}
+          expo-version: ${{ env.EXPO_CLI_VERSION }}
 
       - run: ./.github/scripts/decrypt.sh
         env:
           DECRYPT_PASSWORD: ${{ secrets.DECRYPT_PASSWORD }}
 
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+
+      - uses: actions/cache@v2
+        id: turtle-cache
+        with:
+          path: ~/.turtle
+          key: turtle-${{ runner.os }}-${{ env.EXPO_SDK_VERSION }}-android
+
       - name: Install Dependencies
         run: |
-          npm i -g turtle-cli lerna
-          lerna bootstrap
+          npm i -g turtle-cli
+          yarn -s --frozen-lockfile --prefer-offline
 
       - run: cd packages/app
 
