@@ -49,7 +49,7 @@ const ProductSum = () => {
               productSum.length
                 ? `The two factors are ${productSum
                     .sort((a, b) => a - b)
-                    .join(', ')}`
+                    .join(' and ')}`
                 : 'There are no factors for this product and sum'
             );
           }}

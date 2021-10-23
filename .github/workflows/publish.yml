@@ -50,7 +50,7 @@ jobs:
         run: yarn -s --frozen-lockfile --prefer-offline
 
       - name: Publish App
-        run: yarn lerna exec --scope @utils/app yarn expo publish
+        run: yarn lerna exec --scope @utils/app expo publish
 
   # build_ios:
   #   name: Build iOS
@@ -161,7 +161,7 @@ jobs:
       - name: Setup Turtle
         run: turtle setup:android --sdk-version ${{ env.EXPO_SDK_VERSION }}
 
-      - run: gpg --quiet --batch --yes --decrypt --passphrase=${{ secrets.DECRYPT_PASSWORD }} --output ./.github/secrets/utils.jks ./.github/secrets/utils.jks.gpg
+      - run: gpg --quiet --batch --yes --decrypt --passphrase="${{ secrets.DECRYPT_PASSWORD }}" --output ./.github/secrets/utils.jks ./.github/secrets/utils.jks.gpg
 
       - name: Build App
         run: turtle build:android -t apk -o ~/utils.apk --keystore-path ./.github/secrets/utils.jks --keystore-alias ${{ secrets.EXPO_ANDROID_KEYSTORE_ALIAS }}
