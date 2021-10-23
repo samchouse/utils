@@ -74,7 +74,7 @@ To stop the app, press <kbd>CTRL</kbd>+<kbd>C</kbd>.
 
 ## Builds
 
-**Android:** [Latest release](https://xenfo-utils.s3.us-east-1.amazonaws.com/android/43.0.0/utils-hash-signed.apk)
+**Android:** [Latest release](https://xenfo-utils.s3.us-east-1.amazonaws.com/android/43.0.0/utils-c3ed5e5e44fb3b3f4d29840396a54de4510d44e8c5798ce6060801181a80ea8b-signed.apk)
 
 ## Contribution
 
