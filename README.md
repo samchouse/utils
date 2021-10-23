@@ -12,10 +12,11 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 - [Structure](#structure)
+- [What is Utils](#what-is-utils)
 - [Usage](#usage)
   - [Via CLI](#via-cli)
   - [Via Expo](#via-expo)
-- [What is Utils](#what-is-utils)
+- [Builds](#builds)
 - [Contribution](#contribution)
 - [License](#license)
 
@@ -27,6 +28,10 @@
 | -------------------- | ------------------- |
 | [Lib](/packages/lib) | Project library     |
 | [App](/packages/app) | App for the library |
+
+## What is Utils
+
+Utils is a collection of utilities that help you with your annoying everyday tasks. This project is fully open sourced and tries to avoid third party libraries.
 
 ## Usage
 
@@ -62,15 +67,14 @@ Go to [Expo Go](https://expo.dev/tools) and scroll to the `Run your project with
 yarn lerna exec --scope @utils/app yarn start
 ```
 
-On iOS: Scan the QR code in your terminal or in your browser using your camera.
-</br>
+On iOS: Scan the QR code in your terminal or in your browser using your camera. </br>
 On Android: Scan the QR code in your terminal or in your browser using the Expo Go app.
 
 To stop the app, press <kbd>CTRL</kbd>+<kbd>C</kbd>.
 
-## What is Utils
+## Builds
 
-Utils is a collection of utilities that help you with your annoying everyday tasks. This project is fully open sourced and tries to avoid third party libraries.
+**Android:** [Latest release](https://xenfo-utils.s3.us-east-1.amazonaws.com/android/43.0.0/utils-hash-signed.apk)
 
 ## Contribution
 

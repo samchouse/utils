@@ -121,8 +121,15 @@ jobs:
           cd packages/app
           turtle build:android -t apk -o ~/utils.apk --keystore-path ../../.github/secrets/utils.jks --keystore-alias ${{ secrets.EXPO_ANDROID_KEYSTORE_ALIAS }}
 
-      - name: Archive APK
-        uses: actions/upload-artifact@v2
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
         with:
-          name: utils.apk
-          path: ~/utils.apk
+          aws-region: us-east-1
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      - name: Upload APK
+        run: aws s3 cp ~/utils.apk s3://xenfo-utils/android/${{ env.EXPO_SDK_VERSION }}/utils-${{ hashFiles('~/utils.apk') }}-signed.apk --acl public-read
+
+      - name: Update README.md
+        run: node .github/scripts/updateReadme.js "https://xenfo-utils.s3.us-east-1.amazonaws.com/android/${{ env.EXPO_SDK_VERSION }}/utils-${{ hashFiles('~/utils.apk') }}-signed.apk"
