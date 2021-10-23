@@ -28,8 +28,7 @@ const ProductSum = () => {
           keyboardType="numeric"
           placeholder="Product"
           value={product}
-          // eslint-disable-next-line no-eval
-          onChangeText={(input) => setProduct(eval(input).toString() as string)}
+          onChangeText={(input) => setProduct(input.replace(/[^\d]/g, ''))}
         />
         <TextInput
           style={styles.input}
@@ -37,8 +36,7 @@ const ProductSum = () => {
           keyboardType="numeric"
           placeholder="Sum"
           value={sum}
-          // eslint-disable-next-line no-eval
-          onChangeText={(input) => setSum(eval(input).toString() as string)}
+          onChangeText={(input) => setSum(input.replace(/[^\d]/g, ''))}
         />
         <TouchableOpacity
           onPress={() => {

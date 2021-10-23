@@ -41,23 +41,13 @@ const chemicalEquationBalancer = (equation: string) => {
 
     const matches = initialValue.match(/([A-Z][a-z]*)(\d*)/g);
     matches?.map((match) => {
-      const [symbolOrExtra, symbolOrAmount, amountOrUndefined] = match
-        .split(/(\d+)/)
-        .filter(Boolean);
+      const [symbol, amountString] = match.split(/(\d+)/).filter(Boolean);
 
-      const symbol = extra === 0 ? symbolOrExtra : symbolOrAmount;
-      const amount =
-        extra === 0
-          ? symbolOrAmount
-            ? isNaN(parseInt(symbolOrAmount, 10))
-              ? 1
-              : parseInt(symbolOrAmount, 10)
-            : 1
-          : amountOrUndefined
-          ? isNaN(parseInt(amountOrUndefined, 10))
-            ? 1
-            : parseInt(amountOrUndefined, 10)
-          : 1;
+      const amount = amountString
+        ? isNaN(parseInt(amountString, 10))
+          ? 1
+          : parseInt(amountString, 10)
+        : 1;
 
       const existing = initialValuesMap.find(
         (v) =>
@@ -69,7 +59,8 @@ const chemicalEquationBalancer = (equation: string) => {
           initialEquationNum - 1
         ] = {
           symbol: symbol!,
-          amount: existing.atoms[0]!.amount + extra + amount
+          amount:
+            existing.atoms[0]!.amount + (extra === 0 ? amount : extra * amount)
         };
       else
         initialValuesMap.find((v) => v.equation === initialEquationNum)
@@ -77,13 +68,16 @@ const chemicalEquationBalancer = (equation: string) => {
               initialValuesMap.indexOf(
                 initialValuesMap.find((v) => v.equation === initialEquationNum)!
               )
-            ]?.atoms.push({ symbol: symbol!, amount: extra + amount })
+            ]?.atoms.push({
+              symbol: symbol!,
+              amount: extra === 0 ? amount : extra * amount
+            })
           : initialValuesMap.push({
               equation: initialEquationNum,
               atoms: [
                 {
                   symbol: symbol!,
-                  amount: extra + amount
+                  amount: extra === 0 ? amount : extra * amount
                 }
               ]
             });
@@ -104,23 +98,13 @@ const chemicalEquationBalancer = (equation: string) => {
 
     const matches = finalValue.match(/([A-Z][a-z]*)(\d*)/g);
     matches?.map((match) => {
-      const [symbolOrExtra, symbolOrAmount, amountOrUndefined] = match
-        .split(/(\d+)/)
-        .filter(Boolean);
+      const [symbol, amountString] = match.split(/(\d+)/).filter(Boolean);
 
-      const symbol = extra === 0 ? symbolOrExtra : symbolOrAmount;
-      const amount =
-        extra === 0
-          ? symbolOrAmount
-            ? isNaN(parseInt(symbolOrAmount, 10))
-              ? 1
-              : parseInt(symbolOrAmount, 10)
-            : 1
-          : amountOrUndefined
-          ? isNaN(parseInt(amountOrUndefined, 10))
-            ? 1
-            : parseInt(amountOrUndefined, 10)
-          : 1;
+      const amount = amountString
+        ? isNaN(parseInt(amountString, 10))
+          ? 1
+          : parseInt(amountString, 10)
+        : 1;
 
       const existing = finalValuesMap.find(
         (v) =>
@@ -132,7 +116,8 @@ const chemicalEquationBalancer = (equation: string) => {
           finalEquationNum - 1
         ] = {
           symbol: symbol!,
-          amount: existing.atoms[0]!.amount + extra + amount
+          amount:
+            existing.atoms[0]!.amount + (extra === 0 ? amount : extra * amount)
         };
       else
         finalValuesMap.find((v) => v.equation === finalEquationNum)
@@ -140,13 +125,16 @@ const chemicalEquationBalancer = (equation: string) => {
               finalValuesMap.indexOf(
                 finalValuesMap.find((v) => v.equation === finalEquationNum)!
               )
-            ]?.atoms.push({ symbol: symbol!, amount: extra + amount })
+            ]?.atoms.push({
+              symbol: symbol!,
+              amount: extra === 0 ? amount : extra * amount
+            })
           : finalValuesMap.push({
               equation: finalEquationNum,
               atoms: [
                 {
                   symbol: symbol!,
-                  amount: extra + amount
+                  amount: extra === 0 ? amount : extra * amount
                 }
               ]
             });
@@ -182,7 +170,38 @@ const chemicalEquationBalancer = (equation: string) => {
   )
     return { balanced: true };
 
-  return { initial: initialValuesMap, final: finalValuesMap };
+  const solution: {
+    additional: { symbol: string; amount: number }[];
+    missing: { symbol: string; amount: number }[];
+  } = { additional: [], missing: [] };
+  for (const initial of initialValuesMap) {
+    for (const i of initial.atoms) {
+      for (const final of finalValuesMap) {
+        for (const j of final.atoms) {
+          if (i.symbol === j.symbol) {
+            const amount = i.amount - j.amount;
+            if (amount > 0) {
+              solution.additional.push({
+                symbol: i.symbol,
+                amount: amount
+              });
+            }
+            if (amount < 0) {
+              solution.missing.push({
+                symbol: i.symbol,
+                amount: Math.abs(amount)
+              });
+            }
+          }
+        }
+      }
+    }
+  }
+
+  if (initialValuesMap.length)
+    return { balanced: false, message: 'Invalid equation' };
+
+  return { balanced: false, solution };
 };
 
 export default chemicalEquationBalancer;
