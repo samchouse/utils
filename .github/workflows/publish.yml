@@ -7,7 +7,7 @@ env:
   TURTLE_VERSION: 0.23.1
   EXPO_CLI_VERSION: 4.12.10
   EXPO_SDK_VERSION: 43.0.0
-  EXPO_USERNAME: ${{ secrets.EXPO_USERNAME }}
+  EXPO_USERNAME: xenfo
   EXPO_PASSWORD: ${{ secrets.EXPO_PASSWORD }}
   EXPO_IOS_DIST_P12_PASSWORD: ${{ secrets.EXPO_IOS_DIST_P12_PASSWORD }}
   EXPO_ANDROID_KEYSTORE_PASSWORD: ${{ secrets.EXPO_ANDROID_KEYSTORE_PASSWORD }}
@@ -129,7 +129,14 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
       - name: Upload APK
-        run: aws s3 cp ~/utils.apk s3://xenfo-utils/android/${{ env.EXPO_SDK_VERSION }}/utils-${{ hashFiles('~/utils.apk') }}-signed.apk --acl public-read
+        run: aws s3 sync ~/utils.apk s3://xenfo-utils/android/${{ env.EXPO_SDK_VERSION }}/utils-${{ hashFiles('../utils.apk') }}-signed.apk --acl public-read
 
       - name: Update README.md
-        run: node .github/scripts/updateReadme.js "https://xenfo-utils.s3.us-east-1.amazonaws.com/android/${{ env.EXPO_SDK_VERSION }}/utils-${{ hashFiles('~/utils.apk') }}-signed.apk"
+        run: node .github/scripts/updateReadme.js "https://xenfo-utils.s3.us-east-1.amazonaws.com/android/${{ env.EXPO_SDK_VERSION }}/utils-${{ hashFiles('../utils.apk') }}-signed.apk"
+
+      - name: Commit Changes
+        uses: EndBug/add-and-commit@v7
+        with:
+          add: README.md
+          default_author: github_actions
+          message: 'docs: update download URL for Android to latest'
