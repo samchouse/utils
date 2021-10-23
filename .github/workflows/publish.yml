@@ -23,27 +23,30 @@ jobs:
         node-version: [16.6.2]
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
       - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
 
-      - uses: expo/expo-github-action@v6
+      - name: Install Expo CLI
+        uses: expo/expo-github-action@v6
         with:
           expo-cache: true
           token: ${{ secrets.EXPO_TOKEN }}
           expo-version: ${{ env.EXPO_CLI_VERSION }}
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
+      - name: Get Yarn Cache Directory
+        id: yarn-cache-dir
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
-      - uses: actions/cache@v2
+      - name: Restore Yarn Cache
+        uses: actions/cache@v2
         id: yarn-cache
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          path: ${{ steps.yarn-cache-dir.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install Dependencies
@@ -51,59 +54,6 @@ jobs:
 
       - name: Publish App
         run: yarn lerna exec --scope @utils/app expo publish
-
-  # build_ios:
-  #   name: Build iOS
-  #   runs-on: macos-latest
-  #   needs: [publish]
-
-  #   strategy:
-  #     matrix:
-  #       node-version: [16.6.2]
-
-  #   steps:
-  #     - uses: actions/checkout@v2
-
-  #     - name: Set up Node.js ${{ matrix.node-version }}
-  #       uses: actions/setup-node@v2
-  #       with:
-  #         node-version: ${{ matrix.node-version }}
-
-  #     - uses: maxim-lobanov/setup-xcode@v1
-  #       with:
-  #         xcode-version: latest-stable
-
-  #     - run: sudo xcodebuild -license accept
-
-  #     - run: brew install fastlane
-
-  #     - uses: expo/expo-github-action@v6
-  #       with:
-  #         expo-version: ${{ env.EXPO_CLI_VERSION }}
-  #         token: ${{ secrets.EXPO_TOKEN }}
-
-  #     - run: ./.github/scripts/decrypt.sh
-  #       env:
-  #         DECRYPT_PASSWORD: ${{ secrets.DECRYPT_PASSWORD }}
-
-  #     - name: Install Dependencies
-  #       run: |
-  #         npm i -g turtle-cli
-  #         yarn -s --frozen-lockfile
-
-  #     - run: cd packages/app
-
-  #     - name: Setup Turtle
-  #       run: turtle setup:ios --sdk-version ${{ env.EXPO_SDK_VERSION }}
-
-  #     - name: Build App
-  #       run: turtle build:android -t archive -o ~/utils.ipa --team-id ${{ secrets.EXPO_APPLE_TEAM_ID }} --dist-p12-path ./.github/secrets/utils_dist.p12 --provisioning-profile-path ./.github/secrets/utils.mobileprovision
-
-  #     - name: Archive IPA
-  #       uses: actions/upload-artifact@v2
-  #       with:
-  #         name: utils.ipa
-  #         path: ~/utils.ipa
 
   build_android:
     name: Build Android
@@ -116,7 +66,11 @@ jobs:
         java-version: [8]
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Decrypt Keystore
+        run: gpg --quiet --batch --yes --decrypt --passphrase="${{ secrets.DECRYPT_PASSWORD }}" --output ./.github/secrets/utils.jks ./.github/secrets/utils.jks.gpg
 
       - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
@@ -129,23 +83,26 @@ jobs:
           distribution: zulu
           java-version: ${{ matrix.java-version }}
 
-      - uses: expo/expo-github-action@v6
+      - name: Install Expo CLI
+        uses: expo/expo-github-action@v6
         with:
           expo-cache: true
           token: ${{ secrets.EXPO_TOKEN }}
           expo-version: ${{ env.EXPO_CLI_VERSION }}
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
+      - name: Get Yarn Cache Directory
+        id: yarn-cache-dir
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
-      - uses: actions/cache@v2
+      - name: Restore Yarn Cache
+        uses: actions/cache@v2
         id: yarn-cache
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          path: ${{ steps.yarn-cache-dir.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
-      - uses: actions/cache@v2
+      - name: Restore Turtle Cache
+        uses: actions/cache@v2
         id: turtle-cache
         with:
           path: ~/.turtle
@@ -159,10 +116,10 @@ jobs:
       - name: Setup Turtle
         run: turtle setup:android --sdk-version ${{ env.EXPO_SDK_VERSION }}
 
-      - run: gpg --quiet --batch --yes --decrypt --passphrase="${{ secrets.DECRYPT_PASSWORD }}" --output ./.github/secrets/utils.jks ./.github/secrets/utils.jks.gpg
-
       - name: Build App
-        run: cd packages/app && turtle build:android -t apk -o ~/utils.apk --keystore-path ../../.github/secrets/utils.jks --keystore-alias ${{ secrets.EXPO_ANDROID_KEYSTORE_ALIAS }}
+        run: |
+          cd packages/app
+          turtle build:android -t apk -o ~/utils.apk --keystore-path ../../.github/secrets/utils.jks --keystore-alias ${{ secrets.EXPO_ANDROID_KEYSTORE_ALIAS }}
 
       - name: Archive APK
         uses: actions/upload-artifact@v2
