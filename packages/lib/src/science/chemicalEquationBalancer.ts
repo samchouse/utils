@@ -198,6 +198,9 @@ const chemicalEquationBalancer = (equation: string) => {
     }
   }
 
+  if (initialValuesMap.length)
+    return { balanced: false, message: 'Invalid equation' };
+
   return { balanced: false, solution };
 };
 

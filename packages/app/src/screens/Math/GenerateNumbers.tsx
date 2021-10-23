@@ -32,7 +32,7 @@ const GenerateNumbers = () => {
           keyboardType="numeric"
           placeholder="Amount"
           value={amount}
-          onChangeText={(input) => setAmount(input)}
+          onChangeText={(input) => setAmount(input.replace(/[^\d]/g, ''))}
         />
         <TextInput
           style={styles.input}
@@ -40,7 +40,7 @@ const GenerateNumbers = () => {
           keyboardType="numeric"
           placeholder="Minimum"
           value={min}
-          onChangeText={(input) => setMin(input)}
+          onChangeText={(input) => setMin(input.replace(/[^\d]/g, ''))}
         />
         <TextInput
           style={styles.input}
@@ -48,7 +48,7 @@ const GenerateNumbers = () => {
           keyboardType="numeric"
           placeholder="Maximum"
           value={max}
-          onChangeText={(input) => setMax(input)}
+          onChangeText={(input) => setMax(input.replace(/[^\d]/g, ''))}
         />
         <View style={styles.switch}>
           <Switch

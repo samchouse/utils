@@ -4,8 +4,9 @@ on:
   workflow_dispatch:
 
 env:
-  EXPO_CLI_VERSION: 4.12.3
-  EXPO_SDK_VERSION: 42.0.0
+  TURTLE_VERSION: 0.23.1
+  EXPO_CLI_VERSION: 4.12.10
+  EXPO_SDK_VERSION: 43.0.0
   EXPO_USERNAME: ${{ secrets.EXPO_USERNAME }}
   EXPO_PASSWORD: ${{ secrets.EXPO_PASSWORD }}
   EXPO_IOS_DIST_P12_PASSWORD: ${{ secrets.EXPO_IOS_DIST_P12_PASSWORD }}
@@ -31,6 +32,7 @@ jobs:
 
       - uses: expo/expo-github-action@v6
         with:
+          expo-cache: true
           token: ${{ secrets.EXPO_TOKEN }}
           expo-version: ${{ env.EXPO_CLI_VERSION }}
 
@@ -133,10 +135,6 @@ jobs:
           token: ${{ secrets.EXPO_TOKEN }}
           expo-version: ${{ env.EXPO_CLI_VERSION }}
 
-      - run: ./.github/scripts/decrypt.sh
-        env:
-          DECRYPT_PASSWORD: ${{ secrets.DECRYPT_PASSWORD }}
-
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -158,10 +156,12 @@ jobs:
           yarn global add turtle-cli
           yarn -s --frozen-lockfile --prefer-offline
 
-      - run: cd packages/app && echo $PWD
+      - run: cd packages/app
 
       - name: Setup Turtle
         run: turtle setup:android --sdk-version ${{ env.EXPO_SDK_VERSION }}
+
+      - run: gpg --quiet --batch --yes --decrypt --passphrase=${{ secrets.DECRYPT_PASSWORD }} --output ./.github/secrets/utils.jks ./.github/secrets/utils.jks.gpg
 
       - name: Build App
         run: turtle build:android -t apk -o ~/utils.apk --keystore-path ./.github/secrets/utils.jks --keystore-alias ${{ secrets.EXPO_ANDROID_KEYSTORE_ALIAS }}
