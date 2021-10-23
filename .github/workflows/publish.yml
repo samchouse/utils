@@ -156,18 +156,13 @@ jobs:
           yarn global add turtle-cli
           yarn -s --frozen-lockfile --prefer-offline
 
-      - run: |
-          cd packages/app
-          yarn -s --frozen-lockfile --prefer-offline
-          ls node_modules
-
       - name: Setup Turtle
         run: turtle setup:android --sdk-version ${{ env.EXPO_SDK_VERSION }}
 
       - run: gpg --quiet --batch --yes --decrypt --passphrase="${{ secrets.DECRYPT_PASSWORD }}" --output ./.github/secrets/utils.jks ./.github/secrets/utils.jks.gpg
 
       - name: Build App
-        run: turtle build:android -t apk -o ~/utils.apk --keystore-path ./.github/secrets/utils.jks --keystore-alias ${{ secrets.EXPO_ANDROID_KEYSTORE_ALIAS }}
+        run: cd packages/app && turtle build:android -t apk -o ~/utils.apk --keystore-path ./.github/secrets/utils.jks --keystore-alias ${{ secrets.EXPO_ANDROID_KEYSTORE_ALIAS }}
 
       - name: Archive APK
         uses: actions/upload-artifact@v2
