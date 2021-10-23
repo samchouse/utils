@@ -13,10 +13,10 @@
 
 - [Structure](#structure)
 - [What is Utils](#what-is-utils)
+- [Builds](#builds)
 - [Usage](#usage)
   - [Via CLI](#via-cli)
   - [Via Expo](#via-expo)
-- [Builds](#builds)
 - [Contribution](#contribution)
 - [License](#license)
 
@@ -32,6 +32,10 @@
 ## What is Utils
 
 Utils is a collection of utilities that help you with your annoying everyday tasks. This project is fully open sourced and tries to avoid third party libraries.
+
+## Builds
+
+**Android:** [Latest release](https://xenfo-utils.s3.us-east-1.amazonaws.com/android/43.0.0/utils-c3ed5e5e44fb3b3f4d29840396a54de4510d44e8c5798ce6060801181a80ea8b-signed.apk)
 
 ## Usage
 
@@ -71,10 +75,6 @@ On iOS: Scan the QR code in your terminal or in your browser using your camera. 
 On Android: Scan the QR code in your terminal or in your browser using the Expo Go app.
 
 To stop the app, press <kbd>CTRL</kbd>+<kbd>C</kbd>.
-
-## Builds
-
-**Android:** [Latest release](https://xenfo-utils.s3.us-east-1.amazonaws.com/android/43.0.0/utils-c3ed5e5e44fb3b3f4d29840396a54de4510d44e8c5798ce6060801181a80ea8b-signed.apk)
 
 ## Contribution
 

@@ -137,6 +137,15 @@ jobs:
       - name: Commit Changes
         uses: EndBug/add-and-commit@v7
         with:
+          branch: dev
           add: README.md
           default_author: github_actions
-          message: 'docs: update download URL for Android to latest'
+          message: "docs: update download URL for Android to latest"
+
+      - name: Merge Branches
+        uses: devmasx/merge-branch@1.4.0
+        with:
+          type: now
+          from_branch: dev
+          target_branch: master
+          github_token: ${{ github.token }}
