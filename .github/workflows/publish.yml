@@ -162,7 +162,7 @@ jobs:
       - run: gpg --quiet --batch --yes --decrypt --passphrase="${{ secrets.DECRYPT_PASSWORD }}" --output ./.github/secrets/utils.jks ./.github/secrets/utils.jks.gpg
 
       - name: Build App
-        run: cd packages/app && turtle build:android -t apk -o ~/utils.apk --keystore-path ./.github/secrets/utils.jks --keystore-alias ${{ secrets.EXPO_ANDROID_KEYSTORE_ALIAS }}
+        run: cd packages/app && turtle build:android -t apk -o ~/utils.apk --keystore-path ../../.github/secrets/utils.jks --keystore-alias ${{ secrets.EXPO_ANDROID_KEYSTORE_ALIAS }}
 
       - name: Archive APK
         uses: actions/upload-artifact@v2
