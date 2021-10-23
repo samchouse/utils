@@ -156,7 +156,10 @@ jobs:
           yarn global add turtle-cli
           yarn -s --frozen-lockfile --prefer-offline
 
-      - run: cd packages/app
+      - run: |
+          cd packages/app
+          yarn -s --frozen-lockfile --prefer-offline
+          ls node_modules
 
       - name: Setup Turtle
         run: turtle setup:android --sdk-version ${{ env.EXPO_SDK_VERSION }}
