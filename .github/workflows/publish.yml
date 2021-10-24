@@ -72,6 +72,13 @@ jobs:
       - name: Decrypt Keystore
         run: gpg --quiet --batch --yes --decrypt --passphrase="${{ secrets.DECRYPT_PASSWORD }}" --output ./.github/secrets/utils.jks ./.github/secrets/utils.jks.gpg
 
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-region: us-east-1
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
       - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
@@ -120,13 +127,6 @@ jobs:
         run: |
           cd packages/app
           turtle build:android -t apk -o ../../utils.apk --keystore-path ../../.github/secrets/utils.jks --keystore-alias ${{ secrets.EXPO_ANDROID_KEYSTORE_ALIAS }}
-
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-region: us-east-1
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
       - name: Upload APK
         run: aws s3 cp ./utils.apk s3://xenfo-utils/android/${{ env.EXPO_SDK_VERSION }}/utils-${{ hashFiles('**/utils.apk') }}-signed.apk --acl public-read
