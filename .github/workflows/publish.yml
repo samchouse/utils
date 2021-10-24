@@ -101,10 +101,6 @@ jobs:
         id: yarn-cache-dir
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
-      - name: Get APK Hash
-        id: apk-hash
-        run: echo "::set-output name=hash::$(node .github/scripts/getUtilsHash.js)"
-
       - name: Restore Yarn Cache
         uses: actions/cache@v2
         id: yarn-cache
@@ -119,13 +115,6 @@ jobs:
           path: ~/.turtle
           key: turtle-${{ runner.os }}-${{ env.EXPO_SDK_VERSION }}-android
 
-      - name: Restore APK
-        uses: actions/cache@v2
-        id: apk-cache
-        with:
-          path: ./utils.apk
-          key: apk-${{ steps.apk-hash.outputs.hash }}
-
       - name: Install Dependencies
         run: |
           yarn global add turtle-cli
@@ -135,21 +124,17 @@ jobs:
         run: turtle setup:android --sdk-version ${{ env.EXPO_SDK_VERSION }}
 
       - name: Build App
-        if: steps.apk-cache.outputs.cache-hit != 'true'
         run: |
           cd packages/app
           turtle build:android -t apk -o ../../utils.apk --keystore-path ../../.github/secrets/utils.jks --keystore-alias ${{ secrets.EXPO_ANDROID_KEYSTORE_ALIAS }}
 
       - name: Upload APK
-        if: steps.apk-cache.outputs.cache-hit != 'true'
         run: aws s3 cp ./utils.apk s3://xenfo-utils/android/${{ env.EXPO_SDK_VERSION }}/utils-${{ hashFiles('**/utils.apk') }}-signed.apk --acl public-read
 
       - name: Update README.md
-        if: steps.apk-cache.outputs.cache-hit != 'true'
         run: node .github/scripts/updateReadme.js "https://xenfo-utils.s3.us-east-1.amazonaws.com/android/${{ env.EXPO_SDK_VERSION }}/utils-${{ hashFiles('**/utils.apk') }}-signed.apk"
 
       - name: Commit Changes
-        if: steps.apk-cache.outputs.cache-hit != 'true'
         uses: EndBug/add-and-commit@v7
         with:
           branch: dev
@@ -158,7 +143,6 @@ jobs:
           message: "docs: update download URL for Android to latest"
 
       - name: Merge Branches
-        if: steps.apk-cache.outputs.cache-hit != 'true'
         uses: devmasx/merge-branch@1.4.0
         with:
           type: now
