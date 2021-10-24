@@ -12,6 +12,7 @@
     "build": "rm -rf ../../dist/ && tsc --project tsconfig.build.json",
     "watch": "tsc --watch --project tsconfig.build.json",
     "test": "jest",
+    "test:watch": "jest --watchAll --coverage=false",
     "lint": "run-s lint:eslint lint:prettier",
     "lint:eslint": "eslint --fix --ignore-path ../../.gitignore --ext .js,.ts .",
     "lint:prettier": "prettier --write --ignore-path ../../.gitignore \"*.json\" \"**/*.spec.ts\""
