@@ -23,6 +23,18 @@ coverage:
         threshold: 5%
         flags:
           - app
+      web:
+        base: auto
+        target: auto
+        threshold: 5%
+        flags:
+          - web
+      api:
+        base: auto
+        target: auto
+        threshold: 5%
+        flags:
+          - api
 
 parsers:
   gcov:
@@ -45,4 +57,12 @@ flags:
   app:
     paths:
       - packages/app/
+    carryforward: true
+  web:
+    paths:
+      - packages/web/
+    carryforward: true
+  api:
+    paths:
+      - packages/api/
     carryforward: true

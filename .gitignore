@@ -1,10 +1,10 @@
 # ---------- Files ----------
-**/*.secrets
 yarn-error.log
 packages/lib/dist
 
 # ---------- Directories ----------
 dist/
+.next/
 .expo/
 coverage/
 node_modules/
