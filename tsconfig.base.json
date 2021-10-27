@@ -4,6 +4,7 @@
     "module": "CommonJS",
     "moduleResolution": "node",
     "sourceMap": true,
+    "removeComments": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
@@ -16,7 +17,8 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedIndexedAccess": true,
-    "noPropertyAccessFromIndexSignature": true
+    "noPropertyAccessFromIndexSignature": true,
+    "incremental": true
   },
   "exclude": ["node_modules", "dist"]
 }
