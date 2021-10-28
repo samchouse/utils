@@ -1,15 +1,15 @@
 import Utils from '@utils/lib';
 import React, { useState } from 'react';
 import {
-  StyleSheet,
-  SafeAreaView,
-  TextInput,
-  TouchableWithoutFeedback,
-  Keyboard,
-  TouchableOpacity,
-  Text,
   Alert,
+  Keyboard,
+  SafeAreaView,
+  StyleSheet,
   Switch,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
   View
 } from 'react-native';
 

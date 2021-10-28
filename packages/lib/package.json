@@ -15,7 +15,7 @@
     "test:watch": "jest --watchAll --coverage=false",
     "lint": "run-s lint:eslint lint:prettier",
     "lint:eslint": "eslint --fix --ignore-path ../../.gitignore --ext .js,.ts .",
-    "lint:prettier": "prettier --write --ignore-path ../../.gitignore \"*.json\" \"**/*.spec.ts\""
+    "lint:prettier": "prettier --write --ignore-path ../../.gitignore ."
   },
   "devDependencies": {
     "@babel/preset-env": "^7.15.8",
