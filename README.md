@@ -24,10 +24,12 @@
 
 ## Structure
 
-| Codebase             | Description         |
-| -------------------- | ------------------- |
-| [Lib](/packages/lib) | Project library     |
-| [App](/packages/app) | App for the library |
+| Codebase             | Description             |
+| -------------------- | ----------------------- |
+| [Lib](/packages/lib) | Project library         |
+| [App](/packages/app) | App for the library     |
+| [Web](/packages/web) | Website for the library |
+| [API](/packages/api) | API for the library     |
 
 ## What is Utils
 
