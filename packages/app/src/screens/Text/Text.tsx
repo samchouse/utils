@@ -1,9 +1,9 @@
 import React from 'react';
 import {
+  Text as RNText,
   SafeAreaView,
-  TouchableOpacity,
   StyleSheet,
-  Text as RNText
+  TouchableOpacity
 } from 'react-native';
 
 import { TextNavigationProps } from '../../typings';

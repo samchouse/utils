@@ -2,14 +2,14 @@ import Utils from '@utils/lib';
 import * as Clipboard from 'expo-clipboard';
 import React, { useState } from 'react';
 import {
-  StyleSheet,
-  SafeAreaView,
-  TextInput,
-  TouchableWithoutFeedback,
+  Alert,
   Keyboard,
-  TouchableOpacity,
+  SafeAreaView,
+  StyleSheet,
   Text,
-  Alert
+  TextInput,
+  TouchableOpacity,
+  TouchableWithoutFeedback
 } from 'react-native';
 
 const Space = () => {

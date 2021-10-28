@@ -1,4 +1,5 @@
 # ---------- Files ----------
+tailwind.css
 yarn-error.log
 packages/lib/dist
 

@@ -1,14 +1,14 @@
 import Utils from '@utils/lib';
 import React, { useState } from 'react';
 import {
-  StyleSheet,
-  SafeAreaView,
-  TextInput,
-  TouchableWithoutFeedback,
+  Alert,
   Keyboard,
-  TouchableOpacity,
+  SafeAreaView,
+  StyleSheet,
   Text,
-  Alert
+  TextInput,
+  TouchableOpacity,
+  TouchableWithoutFeedback
 } from 'react-native';
 
 const GCF = () => {
