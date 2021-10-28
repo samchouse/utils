@@ -2,7 +2,7 @@ import { NextSeoProps } from 'next-seo';
 
 const config: NextSeoProps = {
   description: 'Utilities for doing various annoying tasks',
-  canonical: 'http://utils.xenfo.dev/',
+  canonical: process.env['NEXT_PUBLIC_FRONTEND_URL'],
   openGraph: {
     site_name: 'Utils',
     title: 'Utils - A Cool Repo',

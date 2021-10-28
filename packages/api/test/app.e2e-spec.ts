@@ -28,7 +28,7 @@ describe('AppController (e2e)', () => {
       url: '/'
     });
 
-    expect(result.statusCode).toEqual(200);
+    expect(result.statusCode).toEqual(300);
     expect(result.payload).toEqual('Hello World!');
   });
 

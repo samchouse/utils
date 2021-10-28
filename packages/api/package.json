@@ -24,7 +24,9 @@
   },
   "dependencies": {
     "@nestjs/common": "^8.0.0",
+    "@nestjs/config": "^1.0.3",
     "@nestjs/core": "^8.0.0",
+    "@nestjs/mapped-types": "*",
     "@nestjs/platform-fastify": "^8.1.2",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
