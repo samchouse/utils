@@ -33,6 +33,7 @@
     "@nestjs/platform-fastify": "^8.1.2",
     "aws-sdk": "^2.1017.0",
     "fastify": "^3.22.1",
+    "fastify-helmet": "^5.3.2",
     "fastify-static": "^4.4.2",
     "ioredis": "^4.28.0",
     "point-of-view": "^4.15.2",

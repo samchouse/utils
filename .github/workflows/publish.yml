@@ -129,10 +129,10 @@ jobs:
           turtle build:android -t apk -o ../../utils.apk --keystore-path ../../.github/secrets/utils.jks --keystore-alias ${{ secrets.EXPO_ANDROID_KEYSTORE_ALIAS }}
 
       - name: Upload APK
-        run: aws s3 cp ./utils.apk s3://xenfo-utils/android/${{ env.EXPO_SDK_VERSION }}/utils-${{ hashFiles('**/utils.apk') }}-signed.apk --acl public-read
+        run: aws s3 cp ./utils.apk s3://xenfo-utils/builds/android/${{ env.EXPO_SDK_VERSION }}/utils-${{ hashFiles('**/utils.apk') }}-signed.apk --acl public-read
 
-      - name: Update README.md
-        run: node .github/scripts/updateReadme.js "https://xenfo-utils.s3.us-east-1.amazonaws.com/android/${{ env.EXPO_SDK_VERSION }}/utils-${{ hashFiles('**/utils.apk') }}-signed.apk"
+      - name: Update API
+        run: "curl -H \"x-api-key: ${{ secrets.UTILS_API_KEY }}\" https://utils.xenfo.dev/api/android/update"
 
       - name: Commit Changes
         uses: EndBug/add-and-commit@v7

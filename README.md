@@ -37,7 +37,7 @@ Utils is a collection of utilities that help you with your annoying everyday tas
 
 ## Builds
 
-**Android:** [Latest release](https://xenfo-utils.s3.us-east-1.amazonaws.com/android/43.0.0/utils-1e0764964fdaa8141f9f4c0a069e5c0abf207e11ad4a7626cf68d277a3182d80-signed.apk)
+**Android:** [Latest release](https://utils.xenfo.dev/api/builds/android/latest)
 
 ## Usage
 

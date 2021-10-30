@@ -1,5 +1,6 @@
-import { Res, Controller, Get, Param, Delete } from '@nestjs/common';
+import { Res, Controller, Get, Param, Delete, UseGuards } from '@nestjs/common';
 import { FastifyReply } from 'fastify';
+import { AdminGuard } from '../guard/admin.guard';
 import { BuildsService } from './builds.service';
 
 @Controller('builds')
@@ -20,11 +21,13 @@ export class BuildsController {
   }
 
   @Get('/android/update')
+  @UseGuards(AdminGuard)
   public async updateAndroid(@Res() res: FastifyReply) {
     return this.buildsService.updateAndroid(res);
   }
 
   @Delete('/android/:hash')
+  @UseGuards(AdminGuard)
   public async removeAndroidId(
     @Res() res: FastifyReply,
     @Param('hash') hash: string
