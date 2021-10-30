@@ -1,28 +1,34 @@
-import { Controller, Get, Post, Body, Param, Delete } from '@nestjs/common';
+import { Res, Controller, Get, Param, Delete } from '@nestjs/common';
+import { FastifyReply } from 'fastify';
 import { BuildsService } from './builds.service';
-import { CreateBuildDto } from './dto/create-build.dto';
 
 @Controller('builds')
 export class BuildsController {
   public constructor(private readonly buildsService: BuildsService) {}
 
-  @Post()
-  public create(@Body() createBuildDto: CreateBuildDto) {
-    return this.buildsService.create(createBuildDto);
+  @Get('/android/latest')
+  public async findAndroidLatest(@Res() res: FastifyReply) {
+    return this.buildsService.findAndroidLatest(res);
   }
 
-  @Get()
-  public findAll() {
-    return this.buildsService.findAll();
+  @Get('/android/:hash')
+  public async findAndroidId(
+    @Res() res: FastifyReply,
+    @Param('hash') hash: string
+  ) {
+    return this.buildsService.findAndroidId(res, hash);
   }
 
-  @Get(':id')
-  public findOne(@Param('id') id: string) {
-    return this.buildsService.findOne(Number(id));
+  @Get('/android/update')
+  public async updateAndroid(@Res() res: FastifyReply) {
+    return this.buildsService.updateAndroid(res);
   }
 
-  @Delete(':id')
-  public remove(@Param('id') id: string) {
-    return this.buildsService.remove(Number(id));
+  @Delete('/android/:hash')
+  public async removeAndroidId(
+    @Res() res: FastifyReply,
+    @Param('hash') hash: string
+  ) {
+    return this.buildsService.removeAndroidId(res, hash);
   }
 }
