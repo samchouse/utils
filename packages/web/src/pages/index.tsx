@@ -16,7 +16,7 @@ const Index: NextPage = () => {
         />
         <h1 className="mt-5 text-brand text-5xl font-bold">Utils</h1>
         <div className="flex flex-col mt-3 lg:flex-row">
-          <Button disabled href="#" className="opacity-70 cursor-not-allowed">
+          <Button disabled href="#" className="opacity-60 cursor-not-allowed">
             Latest iOS
           </Button>
           <Button href="/api/builds/android/latest">Lastest Android</Button>
