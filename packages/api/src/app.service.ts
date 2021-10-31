@@ -2,7 +2,10 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class AppService {
-  public getHello() {
-    return 'Hello World!';
+  public getHome() {
+    return {
+      url: process.env['FRONTEND_URL'],
+      statusCode: 308
+    };
   }
 }
