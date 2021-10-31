@@ -1,6 +1,6 @@
 {
   "name": "@utils/app",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Utilities for doing various annoying tasks",
   "main": "node_modules/expo/AppEntry.js",
   "repository": "https://github.com/Xenfo/utils.git",
@@ -20,7 +20,7 @@
   "dependencies": {
     "@react-navigation/native": "^6.0.6",
     "@react-navigation/native-stack": "^6.2.5",
-    "@utils/lib": "^1.0.0",
+    "@utils/lib": "^1.0.1",
     "expo": "~43.0.1",
     "expo-clipboard": "~2.0.3",
     "expo-status-bar": "~1.1.0",
