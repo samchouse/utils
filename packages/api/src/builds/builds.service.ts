@@ -2,6 +2,7 @@ import { Inject, Injectable } from '@nestjs/common';
 import { FastifyReply } from 'fastify';
 import { S3 } from 'aws-sdk';
 import { Redis } from 'ioredis';
+import escapeRegExp from 'lodash.escaperegexp';
 
 @Injectable()
 export class BuildsService {
@@ -92,7 +93,7 @@ export class BuildsService {
 
   public async findAndroidId(res: FastifyReply, hash: string) {
     const cachedKey = (await this.redis.keys('android:*')).filter(
-      (key) => key.search(hash) !== -1
+      (key) => key.search(escapeRegExp(hash)) !== -1
     )[0];
     if (cachedKey) {
       const cached = await this.redis.get(cachedKey);
@@ -117,7 +118,7 @@ export class BuildsService {
     const build = builds.Contents?.sort(
       (a, b) =>
         (b.LastModified?.getTime() ?? 0) - (a.LastModified?.getTime() ?? 0)
-    ).filter((a) => a.Key && a.Key.search(hash) !== -1)[0];
+    ).filter((a) => a.Key && a.Key.search(escapeRegExp(hash)) !== -1)[0];
 
     if (!build || !build.Key) return this.send404(res, 'No builds found');
 
@@ -182,10 +183,10 @@ export class BuildsService {
 
   public async removeAndroidId(res: FastifyReply, hash: string) {
     const cachedKey = (await this.redis.keys('android:*')).filter(
-      (key) => key.search(hash) !== -1
+      (key) => key.search(escapeRegExp(hash)) !== -1
     )[0];
     const latestCachedKey = (await this.redis.keys('android-latest:*')).filter(
-      (key) => key.search(hash) !== -1
+      (key) => key.search(escapeRegExp(hash)) !== -1
     )[0];
 
     if (cachedKey) await this.redis.del(cachedKey);
@@ -201,7 +202,7 @@ export class BuildsService {
     const build = builds.Contents?.sort(
       (a, b) =>
         (b.LastModified?.getTime() ?? 0) - (a.LastModified?.getTime() ?? 0)
-    ).filter((a) => a.Key && a.Key.search(hash) !== -1)[0];
+    ).filter((a) => a.Key && a.Key.search(escapeRegExp(hash)) !== -1)[0];
 
     if (!build || !build.Key) return this.send404(res, 'No builds found');
 
