@@ -1,6 +1,6 @@
 {
   "name": "@utils/api",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Utilities for doing various annoying tasks",
   "repository": "https://github.com/Xenfo/utils.git",
   "author": "Samuel Corsi-House <chouse.samuel@gmail.com>",
