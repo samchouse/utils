@@ -1,5 +1,5 @@
 const gcf = (...numbers: number[]) => {
-  const calculate = (a: number, b: number): number => {
+  const calculate = (a: number, b: number) => {
     if (b === 0) return Math.abs(a);
 
     return calculate(b, a % b);
