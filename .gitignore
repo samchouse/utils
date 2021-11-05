@@ -3,7 +3,6 @@
 tailwind.css
 yarn-error.log
 lerna-debug.log
-packages/lib/dist
 
 # ---------- Directories ----------
 dist/
