@@ -7,13 +7,9 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "NODE_ENV=development run-p css:watch next:dev",
-    "build": "NODE_ENV=production run-s css:build next:build",
+    "dev": "next dev",
+    "build": "next build",
     "start": "next start",
-    "next:dev": "next dev",
-    "next:build": "next build",
-    "css:watch": "tailwindcss -w -c tailwind.config.js -o src/styles/tailwind.css",
-    "css:build": "tailwindcss -m -c tailwind.config.js -o src/styles/tailwind.css",
     "lint": "run-s lint:eslint lint:prettier",
     "lint:eslint": "next lint --fix --ignore-path ../../.gitignore",
     "lint:prettier": "prettier --write --ignore-path ../../.gitignore ."
@@ -24,6 +20,7 @@
     "nprogress": "^0.2.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "sass": "^1.43.4",
     "sharp": "^0.29.2"
   },
   "devDependencies": {
