@@ -5,8 +5,7 @@ import Router from 'next/router';
 import NProgress from 'nprogress';
 
 import SEO from '../../next-seo.config';
-import '../styles/loading.css';
-import '../styles/tailwind.css';
+import '../styles/styles.scss';
 
 NProgress.configure({ showSpinner: false });
 
