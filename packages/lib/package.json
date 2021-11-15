@@ -9,7 +9,7 @@
   "private": true,
   "scripts": {
     "shell": "node -i -e \"const Utils = require('../../dist/lib').default\"",
-    "build": "rm -rf ../../dist/ && tsc --project tsconfig.build.json",
+    "build": "rm -rf ../../dist/lib && tsc --project tsconfig.build.json",
     "watch": "tsc --watch --project tsconfig.build.json",
     "test": "jest",
     "test:watch": "jest --watchAll --coverage=false",
