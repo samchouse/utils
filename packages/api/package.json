@@ -7,7 +7,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "prebuild": "rimraf dist",
+    "prebuild": "rimraf ../../dist/api",
     "build": "nest build",
     "start": "nest start",
     "start:dev": "nest start --watch",
@@ -27,15 +27,15 @@
     "services:down": "docker-compose -f docker/docker-compose.yml --env .env down"
   },
   "dependencies": {
-    "@nestjs/common": "^8.1.2",
+    "@nestjs/common": "^8.2.0",
     "@nestjs/config": "^1.1.0",
-    "@nestjs/core": "^8.1.2",
+    "@nestjs/core": "^8.2.0",
     "@nestjs/mapped-types": "*",
-    "@nestjs/platform-fastify": "^8.1.2",
-    "aws-sdk": "^2.1023.0",
+    "@nestjs/platform-fastify": "^8.2.0",
+    "aws-sdk": "^2.1028.0",
     "class-transformer": "^0.4.0",
     "class-validator": "^0.13.1",
-    "fastify": "^3.23.1",
+    "fastify": "^3.24.0",
     "fastify-helmet": "^5.3.2",
     "fastify-static": "^4.5.0",
     "ioredis": "^4.28.0",
@@ -48,7 +48,7 @@
   "devDependencies": {
     "@nestjs/cli": "^8.1.4",
     "@nestjs/schematics": "^8.0.4",
-    "@nestjs/testing": "^8.1.2",
+    "@nestjs/testing": "^8.2.0",
     "@types/ioredis": "^4.28.1",
     "@types/lodash.escaperegexp": "^4.1.6",
     "@types/supertest": "^2.0.11",
@@ -59,7 +59,7 @@
     "ts-loader": "^9.2.6",
     "ts-node": "^10.4.0",
     "tsconfig-paths": "^3.11.0",
-    "webpack": "^5.62.1",
+    "webpack": "^5.64.0",
     "webpack-node-externals": "^3.0.0"
   },
   "jest": {
