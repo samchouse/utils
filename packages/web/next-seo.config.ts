@@ -24,12 +24,6 @@ const config: NextSeoProps = {
       property: 'theme-color',
       content: '#3f58fc'
     }
-  ],
-  additionalLinkTags: [
-    {
-      rel: 'stylesheet',
-      href: 'https://fonts.googleapis.com/css2?family=Be+Vietnam:wght@400;500;600;700&display=swap'
-    }
   ]
 };
 
