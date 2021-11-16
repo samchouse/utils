@@ -2,6 +2,7 @@
 module.exports = {
   reactStrictMode: true,
   poweredByHeader: false,
+  swcMinify: true,
   // eslint-disable-next-line @typescript-eslint/require-await
   async rewrites() {
     return [
