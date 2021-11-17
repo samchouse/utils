@@ -20,7 +20,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.6.2]
+        node-version: [16.13.0]
 
     steps:
       - name: Checkout Repository
@@ -62,7 +62,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.6.2]
+        node-version: [16.13.0]
         java-version: [8]
 
     steps:
