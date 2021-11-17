@@ -19,8 +19,6 @@ async function bootstrap() {
     methods: ['GET', 'POST', 'DELETE']
   });
 
-  // @ts-ignore
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
   await app.register(fastifyHelmet);
 
   await app.listen(4200);
