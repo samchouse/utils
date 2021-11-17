@@ -27,12 +27,12 @@
     "services:down": "docker-compose -f docker/docker-compose.yml --env .env down"
   },
   "dependencies": {
-    "@nestjs/common": "^8.2.0",
+    "@nestjs/common": "^8.2.1",
     "@nestjs/config": "^1.1.0",
-    "@nestjs/core": "^8.2.0",
+    "@nestjs/core": "^8.2.1",
     "@nestjs/mapped-types": "*",
-    "@nestjs/platform-fastify": "^8.2.0",
-    "aws-sdk": "^2.1029.0",
+    "@nestjs/platform-fastify": "^8.2.1",
+    "aws-sdk": "^2.1030.0",
     "class-transformer": "^0.4.0",
     "class-validator": "^0.13.1",
     "fastify": "^3.24.0",
@@ -47,8 +47,8 @@
   },
   "devDependencies": {
     "@nestjs/cli": "^8.1.4",
-    "@nestjs/schematics": "^8.0.4",
-    "@nestjs/testing": "^8.2.0",
+    "@nestjs/schematics": "^8.0.5",
+    "@nestjs/testing": "^8.2.1",
     "@types/ioredis": "^4.28.1",
     "@types/lodash.escaperegexp": "^4.1.6",
     "@types/supertest": "^2.0.11",
