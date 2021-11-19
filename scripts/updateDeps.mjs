@@ -10,10 +10,7 @@ const updateDeps = async () => {
 
   const updates = await run({ cwd: process.cwd(), deep: true });
 
-  console.log = oldLog;
-
   spinner.stop();
-
   spinner = ora('Updating dependencies').start();
 
   const updater = Promise.resolve(
@@ -28,6 +25,8 @@ const updateDeps = async () => {
   );
 
   await updater.then(() => spinner.stop());
+
+  console.log = oldLog;
   console.log('Updated all dependencies successfully');
 };
 
