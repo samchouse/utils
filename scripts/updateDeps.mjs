@@ -11,10 +11,21 @@ const updateDeps = async () => {
   const updates = await run({ cwd: process.cwd(), deep: true });
 
   spinner.stop();
-  spinner = ora('Updating dependencies').start();
 
-  if (Object.entries(updates).length === 0) 
-    return console.log('Dependencies are up to date')
+  if (
+    !Object.keys(updates)
+      .map((key) => {
+        const subUpdates = updates[key];
+        if (Object.entries(subUpdates).length === 0) return true;
+        return false;
+      })
+      .includes(false)
+  ) {
+    console.log = logger;
+    return console.log('Dependencies are up to date');
+  }
+
+  spinner = ora('Updating dependencies').start();
 
   const updater = Promise.resolve(
     Object.keys(updates).forEach(async (key) => {
