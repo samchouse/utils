@@ -6,3 +6,5 @@ web:
   - packages/web/**/*
 api:
   - packages/api/**/*
+scripts:
+  - scripts/**/*

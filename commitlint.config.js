@@ -9,7 +9,7 @@ module.exports = {
       getPackages(ctx).then((packages) => [
         2,
         'always',
-        packages.concat(['misc', 'deps'])
+        packages.concat(['scripts', 'misc', 'deps'])
       ])
   }
 };
