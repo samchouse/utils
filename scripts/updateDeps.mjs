@@ -2,15 +2,29 @@ import ora from 'ora';
 import { run } from 'npm-check-updates';
 import path from 'path';
 
+const logger = console.log;
+console.log = () => {};
+
 const updateDeps = async () => {
   let spinner = ora('Checking for updates').start();
-
-  const oldLog = console.log;
-  console.log = () => {};
 
   const updates = await run({ cwd: process.cwd(), deep: true });
 
   spinner.stop();
+
+  if (
+    !Object.keys(updates)
+      .map((key) => {
+        const subUpdates = updates[key];
+        if (Object.entries(subUpdates).length === 0) return true;
+        return false;
+      })
+      .includes(false)
+  ) {
+    console.log = logger;
+    return console.log('Dependencies are up to date');
+  }
+
   spinner = ora('Updating dependencies').start();
 
   const updater = Promise.resolve(
@@ -26,7 +40,7 @@ const updateDeps = async () => {
 
   await updater.then(() => spinner.stop());
 
-  console.log = oldLog;
+  console.log = logger;
   console.log('Updated all dependencies successfully');
 };
 

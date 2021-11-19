@@ -26,6 +26,7 @@
   },
   "scripts": {
     "prepare": "is-ci || husky install",
+    "update": "node scripts/updateDeps.mjs",
     "deduplicate": "yarn-deduplicate",
     "commit": "cz"
   },
