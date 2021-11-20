@@ -1,6 +1,7 @@
-import ora from 'ora';
 import { run } from 'npm-check-updates';
+import ora from 'ora';
 import path from 'path';
+import shell from 'shelljs';
 
 const logger = console.log;
 console.log = () => {};
@@ -27,6 +28,9 @@ const updateDeps = async () => {
 
   spinner = ora('Updating dependencies').start();
 
+  const install = Promise.resolve(
+    shell.exec('yarn', { cwd: process.cwd(), silent: true })
+  );
   const updater = Promise.resolve(
     Object.keys(updates).forEach(async (key) => {
       const subUpdates = updates[key];
@@ -38,7 +42,7 @@ const updateDeps = async () => {
     })
   );
 
-  await updater.then(() => spinner.stop());
+  await updater.then(async () => install.then(() => spinner.stop()));
 
   console.log = logger;
   console.log('Updated all dependencies successfully');
