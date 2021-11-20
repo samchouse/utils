@@ -1,4 +1,4 @@
-import { factorsOf } from '../';
+import factorsOf from '../factorsOf';
 
 describe('test factorsOf calculator', () => {
   it('should answer with right factors', () => {

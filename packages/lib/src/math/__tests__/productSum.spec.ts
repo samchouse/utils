@@ -1,4 +1,4 @@
-import { productSum } from '..';
+import productSum from '../productSum';
 
 describe('test productSum calculator', () => {
   it('should answer with right productSum', () => {

@@ -1,4 +1,4 @@
-import { wtf } from '../';
+import wtf from '../wtf';
 
 describe('test wtf util', () => {
   it('should respond with valid wtf', () => {

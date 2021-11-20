@@ -1,4 +1,4 @@
-import { gcf } from '../';
+import gcf from '../gcf';
 
 describe('test gcf calculator', () => {
   it('should answer with right gcf', () => {

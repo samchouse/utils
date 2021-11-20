@@ -32,7 +32,7 @@
     "@nestjs/mapped-types": "*",
     "@nestjs/platform-fastify": "^8.2.2",
     "aws-sdk": "^2.1033.0",
-    "class-transformer": "^0.4.0",
+    "class-transformer": "^0.5.0",
     "class-validator": "^0.13.2",
     "fastify": "^3.24.0",
     "fastify-helmet": "^5.3.2",
