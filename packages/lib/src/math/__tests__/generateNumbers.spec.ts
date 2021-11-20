@@ -1,4 +1,4 @@
-import { generateNumbers } from '../';
+import generateNumbers from '../generateNumbers';
 
 describe('test number generator', () => {
   const mockGenerateNumbers = jest.fn(generateNumbers);

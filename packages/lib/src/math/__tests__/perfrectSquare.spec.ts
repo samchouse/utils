@@ -1,4 +1,4 @@
-import { perfectSquare } from '../';
+import perfectSquare from '../perfectSquare';
 
 describe('test perfectSquare calculator', () => {
   it('should answer with perfectSquare', () => {

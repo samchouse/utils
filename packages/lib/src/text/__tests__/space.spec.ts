@@ -1,4 +1,4 @@
-import { space } from '../';
+import space from '../space';
 
 describe('test space util', () => {
   it('should respond with valid space', () => {
