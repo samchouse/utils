@@ -26,20 +26,20 @@
     "services:down": "docker-compose -f docker/docker-compose.yml --env .env down"
   },
   "dependencies": {
-    "@nestjs/common": "^8.2.2",
-    "@nestjs/config": "^1.1.0",
-    "@nestjs/core": "^8.2.2",
+    "@nestjs/common": "^8.2.3",
+    "@nestjs/config": "^1.1.5",
+    "@nestjs/core": "^8.2.3",
     "@nestjs/mapped-types": "*",
-    "@nestjs/platform-fastify": "^8.2.2",
-    "aws-sdk": "^2.1033.0",
-    "class-transformer": "^0.5.0",
+    "@nestjs/platform-fastify": "^8.2.3",
+    "aws-sdk": "^2.1037.0",
+    "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
     "fastify": "^3.24.0",
     "fastify-helmet": "^5.3.2",
     "fastify-static": "^4.5.0",
-    "ioredis": "^4.28.0",
+    "ioredis": "^4.28.1",
     "lodash.escaperegexp": "^4.1.2",
-    "point-of-view": "^4.15.2",
+    "point-of-view": "^4.15.3",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.4.0"
@@ -47,7 +47,7 @@
   "devDependencies": {
     "@nestjs/cli": "^8.1.5",
     "@nestjs/schematics": "^8.0.5",
-    "@nestjs/testing": "^8.2.2",
+    "@nestjs/testing": "^8.2.3",
     "@types/ioredis": "^4.28.1",
     "@types/lodash.escaperegexp": "^4.1.6",
     "@types/supertest": "^2.0.11",
@@ -57,7 +57,7 @@
     "ts-loader": "^9.2.6",
     "ts-node": "^10.4.0",
     "tsconfig-paths": "^3.12.0",
-    "webpack": "^5.64.2"
+    "webpack": "^5.64.4"
   },
   "jest": {
     "displayName": "api",
