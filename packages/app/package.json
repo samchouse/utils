@@ -11,11 +11,11 @@
     "hoistingLimits": "dependencies"
   },
   "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web",
-    "eject": "expo eject",
+    "start": "NODE_OPTIONS=--openssl-legacy-provider expo start",
+    "android": "NODE_OPTIONS=--openssl-legacy-provider expo start --android",
+    "ios": "NODE_OPTIONS=--openssl-legacy-provider expo start --ios",
+    "web": "NODE_OPTIONS=--openssl-legacy-provider expo start --web",
+    "eject": "NODE_OPTIONS=--openssl-legacy-provider expo eject",
     "lint": "run-s lint:eslint lint:prettier",
     "lint:eslint": "eslint --fix --ignore-path ../../.gitignore --ext .js,.ts,.tsx .",
     "lint:prettier": "prettier --write --ignore-path ../../.gitignore ."
@@ -37,6 +37,7 @@
   "devDependencies": {
     "@babel/core": "^7.16.0",
     "@babel/preset-env": "^7.16.4",
+    "@expo/metro-config": "^0.3.2",
     "@types/react": "~17.0.37",
     "@types/react-native": "~0.66.6",
     "eslint-plugin-react": "^7.27.1",
