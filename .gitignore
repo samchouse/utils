@@ -6,15 +6,13 @@ lerna-debug.log
 
 # ---------- Directories ----------
 dist/
+.yarn/
 .next/
 .expo/
 coverage/
+!.yarn/sdks/
 node_modules/
-
-.pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versions
+!.yarn/patches/
+!.yarn/plugins/
+!.yarn/releases/
+!.yarn/versions/
