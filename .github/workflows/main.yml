@@ -35,7 +35,7 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install Dependencies
-        run: yarn -s --frozen-lockfile --prefer-offline
+        run: yarn -s --immutable --prefer-offline
 
       - name: Run Linter
         run: yarn lerna run lint:report
@@ -69,7 +69,7 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install Dependencies
-        run: yarn -s --frozen-lockfile --prefer-offline
+        run: yarn -s --immutable --prefer-offline
 
       - name: Run Tests
         run: yarn lerna run test -- -- --coverage

@@ -50,7 +50,7 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install Dependencies
-        run: yarn -s --frozen-lockfile --prefer-offline
+        run: yarn -s --immutable --prefer-offline
 
       - name: Publish App
         run: yarn lerna exec --scope @utils/app expo publish
@@ -118,7 +118,7 @@ jobs:
       - name: Install Dependencies
         run: |
           yarn global add turtle-cli
-          yarn -s --frozen-lockfile --prefer-offline
+          yarn -s --immutable --prefer-offline
 
       - name: Setup Turtle
         run: turtle setup:android --sdk-version ${{ env.EXPO_SDK_VERSION }}

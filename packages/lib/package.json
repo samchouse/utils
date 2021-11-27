@@ -7,6 +7,9 @@
   "author": "Samuel Corsi-House <chouse.samuel@gmail.com>",
   "license": "MIT",
   "private": true,
+  "installConfig": {
+    "hoistingLimits": "dependencies"
+  },
   "scripts": {
     "shell": "node -i -e \"const Utils = require('../../dist/lib').default\"",
     "build": "rm -rf ../../dist/lib && tsc --project tsconfig.build.json",
