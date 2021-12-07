@@ -20,7 +20,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.13.0]
+        node-version: [17.1.0]
 
     steps:
       - name: Checkout Repository
@@ -40,7 +40,7 @@ jobs:
 
       - name: Get Yarn Cache Directory
         id: yarn-cache-dir
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
 
       - name: Restore Yarn Cache
         uses: actions/cache@v2
@@ -50,7 +50,7 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install Dependencies
-        run: yarn -s --frozen-lockfile --prefer-offline
+        run: yarn --immutable
 
       - name: Publish App
         run: yarn lerna exec --scope @utils/app expo publish
@@ -62,7 +62,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.13.0]
+        node-version: [17.1.0]
         java-version: [8]
 
     steps:
@@ -99,7 +99,7 @@ jobs:
 
       - name: Get Yarn Cache Directory
         id: yarn-cache-dir
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
 
       - name: Restore Yarn Cache
         uses: actions/cache@v2
@@ -117,8 +117,8 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          yarn global add turtle-cli
-          yarn -s --frozen-lockfile --prefer-offline
+          npm i -g turtle-cli
+          yarn --immutable
 
       - name: Setup Turtle
         run: turtle setup:android --sdk-version ${{ env.EXPO_SDK_VERSION }}

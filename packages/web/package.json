@@ -10,26 +10,26 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "run-s lint:eslint lint:prettier",
+    "lint": "run lint:eslint && run lint:prettier",
     "lint:eslint": "next lint --fix --ignore-path ../../.gitignore",
-    "lint:prettier": "prettier --write --ignore-path ../../.gitignore ."
+    "lint:prettier": "run r:prettier --write --ignore-path ../../.gitignore ."
   },
   "dependencies": {
-    "next": "12.0.5-canary.5",
+    "next": "12.0.7",
     "next-seo": "^4.28.1",
     "nprogress": "^0.2.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "sass": "^1.43.4",
+    "sass": "^1.44.0",
     "sharp": "^0.29.3"
   },
   "devDependencies": {
     "@types/nprogress": "^0.2.0",
-    "@types/react": "17.0.35",
+    "@types/react": "17.0.37",
     "autoprefixer": "^10.4.0",
-    "eslint-config-next": "12.0.5-canary.5",
+    "eslint-config-next": "12.0.7",
     "lodash.merge": "^4.6.2",
-    "postcss": "^8.3.11",
+    "postcss": "^8.4.4",
     "prettier-plugin-tailwind": "^2.2.12",
     "tailwindcss": "^2.2.19"
   }

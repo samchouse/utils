@@ -13,7 +13,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.13.0]
+        node-version: [17.1.0]
 
     steps:
       - uses: actions/checkout@v2
@@ -25,7 +25,7 @@ jobs:
 
       - name: Get Yarn Cache Directory
         id: yarn-cache-dir
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
 
       - name: Restore Yarn Cache
         uses: actions/cache@v2
@@ -35,11 +35,10 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install Dependencies
-        run: yarn -s --frozen-lockfile --prefer-offline
+        run: yarn --immutable
 
       - name: Run Linter
-        run: yarn lerna run lint:report
-        continue-on-error: true
+        run: yarn workspaces foreach -v run lint
 
   test:
     name: Test
@@ -47,7 +46,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.13.0]
+        node-version: [17.1.0]
 
     steps:
       - uses: actions/checkout@v2
@@ -59,7 +58,7 @@ jobs:
 
       - name: Get Yarn Cache Directory
         id: yarn-cache-dir
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
 
       - name: Restore Yarn Cache
         uses: actions/cache@v2
@@ -69,10 +68,10 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install Dependencies
-        run: yarn -s --frozen-lockfile --prefer-offline
+        run: yarn --immutable
 
       - name: Run Tests
-        run: yarn lerna run test -- -- --coverage
+        run: yarn workspaces foreach -v run test --coverage
 
       - name: Upload Coverage to Codecov
         uses: codecov/codecov-action@v2
