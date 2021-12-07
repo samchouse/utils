@@ -38,8 +38,7 @@ jobs:
         run: yarn --immutable
 
       - name: Run Linter
-        run: yarn lerna run lint:report
-        continue-on-error: true
+        run: yarn workspaces foreach -v run lint
 
   test:
     name: Test
@@ -72,7 +71,7 @@ jobs:
         run: yarn --immutable
 
       - name: Run Tests
-        run: yarn lerna run test -- -- --coverage
+        run: yarn workspaces foreach -v run test --coverage
 
       - name: Upload Coverage to Codecov
         uses: codecov/codecov-action@v2
