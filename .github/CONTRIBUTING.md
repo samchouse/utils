@@ -21,7 +21,7 @@ We'd also love PRs. If you're thinking of a large PR, we advise opening up an is
 
 1. [Fork][fork] and clone the repository.
 1. Configure and install the dependencies: `yarn`.
-1. Make sure the tests pass on your machine: `yarn lerna run test`.
+1. Make sure the tests pass on your machine: `yarn workspaces foreach -v run test`.
 1. Create a new branch: `git checkout -b my-branch-name`.
 1. Make your change, add tests, and make sure the tests still pass, make sure to also lint your project.
 1. Push to your fork and [submit a pull request][pr].
