@@ -8,7 +8,7 @@
   "license": "MIT",
   "private": true,
   "installConfig": {
-    "hoistingLimits": "dependencies"
+    "hoistingLimits": "workspaces"
   },
   "scripts": {
     "start": "NODE_OPTIONS=--openssl-legacy-provider expo start",
@@ -16,14 +16,14 @@
     "ios": "NODE_OPTIONS=--openssl-legacy-provider expo start --ios",
     "web": "NODE_OPTIONS=--openssl-legacy-provider expo start --web",
     "eject": "NODE_OPTIONS=--openssl-legacy-provider expo eject",
-    "lint": "run-s lint:eslint lint:prettier",
-    "lint:eslint": "eslint --fix --ignore-path ../../.gitignore --ext .js,.ts,.tsx .",
-    "lint:prettier": "prettier --write --ignore-path ../../.gitignore ."
+    "lint": "run lint:eslint && run lint:prettier",
+    "lint:eslint": "run r:eslint --fix --ignore-path ../../.gitignore --ext .js,.ts,.tsx .",
+    "lint:prettier": "run r:prettier --write --ignore-path ../../.gitignore ."
   },
   "dependencies": {
     "@react-navigation/native": "^6.0.6",
     "@react-navigation/native-stack": "^6.2.5",
-    "@utils/lib": "^1.0.1",
+    "@utils/lib": "workspace:^",
     "expo": "~43.0.3",
     "expo-clipboard": "~2.0.3",
     "expo-status-bar": "~1.1.0",
@@ -31,15 +31,15 @@
     "react-dom": "17.0.2",
     "react-native": "https://github.com/expo/react-native/archive/sdk-43.0.0.tar.gz",
     "react-native-safe-area-context": "3.3.2",
-    "react-native-screens": "~3.10.0",
+    "react-native-screens": "~3.10.1",
     "react-native-web": "~0.17.5"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
     "@babel/preset-env": "^7.16.4",
-    "@expo/metro-config": "^0.3.2",
+    "@expo/metro-config": "^0.3.4",
     "@types/react": "~17.0.37",
-    "@types/react-native": "~0.66.6",
+    "@types/react-native": "~0.66.8",
     "eslint-plugin-react": "^7.27.1",
     "eslint-plugin-react-hooks": "^4.3.0"
   }

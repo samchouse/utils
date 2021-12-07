@@ -19,6 +19,7 @@ async function bootstrap() {
     methods: ['GET', 'POST', 'DELETE']
   });
 
+  // @ts-ignore
   await app.register(fastifyHelmet);
 
   await app.listen(4200);
