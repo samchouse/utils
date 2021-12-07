@@ -2,7 +2,6 @@
 .env
 tailwind.css
 yarn-error.log
-lerna-debug.log
 
 # ---------- Directories ----------
 dist/

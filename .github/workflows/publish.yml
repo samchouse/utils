@@ -53,7 +53,7 @@ jobs:
         run: yarn --immutable
 
       - name: Publish App
-        run: yarn lerna exec --scope @utils/app expo publish
+        run: cd packages/app && expo publish
 
   build_android:
     name: Build Android
@@ -132,4 +132,4 @@ jobs:
         run: aws s3 cp ./utils.apk s3://xenfo-utils/builds/android/${{ env.EXPO_SDK_VERSION }}/utils-${{ hashFiles('**/utils.apk') }}-signed.apk --acl public-read
 
       - name: Update API
-        run: "curl -H \"x-api-key: ${{ secrets.UTILS_API_KEY }}\" https://utils.xenfo.dev/api/android/update"
+        run: 'curl -H "x-api-key: ${{ secrets.UTILS_API_KEY }}" https://utils.xenfo.dev/api/android/update'

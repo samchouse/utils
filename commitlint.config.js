@@ -1,6 +1,24 @@
-const {
-  utils: { getPackages }
-} = require('@commitlint/config-lerna-scopes');
+const path = require('path');
+const globby = require('globby');
+
+const getPackages = async (context) => {
+  const ctx = context || {};
+  const cwd = ctx.cwd || process.cwd();
+
+  const { workspaces } = require(path.join(cwd, 'package.json'));
+  const pJsons = await globby(
+    workspaces.map((ws) => {
+      return path.join(ws, 'package.json');
+    }),
+    { cwd }
+  );
+
+  const packages = pJsons.map((pJson) => require(path.join(cwd, pJson)));
+  return packages
+    .map((pkg) => pkg.name)
+    .filter(Boolean)
+    .map((name) => (name.charAt(0) === '@' ? name.split('/')[1] : name));
+};
 
 module.exports = {
   extends: ['@commitlint/config-conventional'],
