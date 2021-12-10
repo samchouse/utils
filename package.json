@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "postinstall": "is-ci || husky install",
-    "update": "node scripts/updateDeps.mjs",
+    "update": "node scripts/updateDeps.js",
     "commit": "cz",
     "r:tsc": "cd $INIT_CWD && tsc",
     "r:eslint": "cd $INIT_CWD && eslint",
@@ -34,16 +34,17 @@
     "eslint-config-marine": "^9.1.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "globby": "^12.0.2",
     "husky": "^7.0.4",
     "inquirer": "^8.2.0",
     "is-ci": "^3.0.1",
-    "jest": "^27.4.3",
+    "jest": "^27.4.4",
     "lint-staged": "^12.1.2",
     "npm-check-updates": "^12.0.3",
     "ora": "^6.0.1",
     "prettier": "^2.5.1",
     "shelljs": "^0.8.4",
-    "typescript": "^4.5.2"
+    "typescript": "^4.5.3"
   },
   "config": {
     "commitizen": {

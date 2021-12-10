@@ -1,6 +1,5 @@
 module.exports = {
-  mode: 'jit',
-  purge: ['./src/pages/**/*.tsx', './src/components/**/*.tsx'],
+  content: ['./src/**/*.tsx'],
   darkMode: 'class',
   theme: {
     extend: {
@@ -11,9 +10,6 @@ module.exports = {
     fontFamily: {
       body: ['"Be Vietnam"', 'sans-serif']
     }
-  },
-  variants: {
-    extend: {}
   },
   plugins: []
 };

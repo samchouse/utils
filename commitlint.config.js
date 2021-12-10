@@ -1,7 +1,8 @@
 const path = require('path');
-const globby = require('globby');
 
 const getPackages = async (context) => {
+  const { globby } = await import('globby');
+
   const ctx = context || {};
   const cwd = ctx.cwd || process.cwd();
 
