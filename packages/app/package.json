@@ -24,7 +24,7 @@
     "@react-navigation/native": "^6.0.6",
     "@react-navigation/native-stack": "^6.2.5",
     "@utils/lib": "workspace:^",
-    "expo": "~43.0.3",
+    "expo": "~43.0.4",
     "expo-clipboard": "~2.0.3",
     "expo-status-bar": "~1.1.0",
     "react": "17.0.2",
@@ -37,7 +37,7 @@
   "devDependencies": {
     "@babel/core": "^7.16.0",
     "@babel/preset-env": "^7.16.4",
-    "@expo/metro-config": "^0.3.4",
+    "@expo/metro-config": "^0.3.5",
     "@types/react": "~17.0.37",
     "@types/react-native": "~0.66.8",
     "eslint-plugin-react": "^7.27.1",

@@ -1,16 +1,15 @@
-import { run } from 'npm-check-updates';
-import ora from 'ora';
-import path from 'path';
-import shell from 'shelljs';
+const { run } = require('npm-check-updates');
+const path = require('path');
+const shell = require('shelljs');
 
 const logger = console.log;
 console.log = () => {};
 
 const updateDeps = async () => {
+  const ora = (await import('ora')).default;
+
   let spinner = ora('Checking for updates').start();
-
   const updates = await run({ cwd: process.cwd(), deep: true });
-
   spinner.stop();
 
   if (
@@ -41,7 +40,6 @@ const updateDeps = async () => {
         });
     })
   );
-
   await updater.then(async () => install.then(() => spinner.stop()));
 
   console.log = logger;
