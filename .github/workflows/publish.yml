@@ -30,6 +30,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+          cache: yarn
 
       - name: Install Expo CLI
         uses: expo/expo-github-action@v6
@@ -37,17 +38,6 @@ jobs:
           expo-cache: true
           token: ${{ secrets.EXPO_TOKEN }}
           expo-version: ${{ env.EXPO_CLI_VERSION }}
-
-      - name: Get Yarn Cache Directory
-        id: yarn-cache-dir
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
-
-      - name: Restore Yarn Cache
-        uses: actions/cache@v2
-        id: yarn-cache
-        with:
-          path: ${{ steps.yarn-cache-dir.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install Dependencies
         run: yarn --immutable
@@ -83,6 +73,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+          cache: yarn
 
       - name: Set up Java ${{ matrix.java-version }}
         uses: actions/setup-java@v2
@@ -96,17 +87,6 @@ jobs:
           expo-cache: true
           token: ${{ secrets.EXPO_TOKEN }}
           expo-version: ${{ env.EXPO_CLI_VERSION }}
-
-      - name: Get Yarn Cache Directory
-        id: yarn-cache-dir
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
-
-      - name: Restore Yarn Cache
-        uses: actions/cache@v2
-        id: yarn-cache
-        with:
-          path: ${{ steps.yarn-cache-dir.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
       - name: Restore Turtle Cache
         uses: actions/cache@v2
