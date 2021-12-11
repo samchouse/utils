@@ -10,4 +10,13 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: yarn
+
+      - name: Install Dependencies
+        run: yarn --immutable
+
       - uses: wagoid/commitlint-github-action@v4
