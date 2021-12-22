@@ -3736,7 +3736,7 @@ __metadata:
     fastify-static: ^4.5.0
     ioredis: ^4.28.2
     lodash.escaperegexp: ^4.1.2
-    point-of-view: ^4.16.0
+    point-of-view: ^5.0.0
     reflect-metadata: ^0.1.13
     rimraf: ^3.0.2
     rxjs: ^7.4.0
@@ -14043,13 +14043,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"point-of-view@npm:^4.16.0":
-  version: 4.16.0
-  resolution: "point-of-view@npm:4.16.0"
+"point-of-view@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "point-of-view@npm:5.0.0"
   dependencies:
     fastify-plugin: ^3.0.0
     hashlru: ^2.3.0
-  checksum: 187658697c335ac34964569646e00399a226d553c00a57df5eda59c632a73d6e625663f432267a77153f28de747255e9118deb2a81090e94c64ddf64d213bef2
+  checksum: 2db22e0ebdb817187e6875b1a45de99ca35309fe818f064bd43f7154fa5c803c29e7dc937636e28ad00fa302880a15e41c4f869f96e9b2d87778249483340957
   languageName: node
   linkType: hard
 
