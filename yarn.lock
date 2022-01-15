@@ -3724,7 +3724,7 @@ __metadata:
     class-transformer: ^0.5.1
     class-validator: ^0.13.2
     fastify: ^3.24.1
-    fastify-helmet: ^6.0.0
+    fastify-helmet: ^7.0.0
     fastify-static: ^4.5.0
     ioredis: ^4.28.2
     lodash.escaperegexp: ^4.1.2
@@ -7786,13 +7786,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastify-helmet@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "fastify-helmet@npm:6.0.0"
+"fastify-helmet@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "fastify-helmet@npm:7.0.0"
   dependencies:
     fastify-plugin: ^3.0.0
     helmet: ^5.0.1
-  checksum: 78d28b8c6d90aa34a95c64fd262638be44b9c3d8b87d374bd7715074ff8c33d00ab0b4c4e25a9ae086475b1c1facca952f4f6c15b11c639005fc623f366337fa
+  checksum: d19745e89024607f4d033f51d7e386e222bf08ccfc5fbed0e4bd75f33463c72aadcd46f2596b37812426ed71fd74391b40dc98aa309c097793a1cb3bef4be7a9
   languageName: node
   linkType: hard
 
