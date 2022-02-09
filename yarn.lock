@@ -3729,7 +3729,7 @@ __metadata:
     react-dom: 17.0.2
     react-native: "https://github.com/expo/react-native/archive/sdk-43.0.0.tar.gz"
     react-native-safe-area-context: 3.3.2
-    react-native-screens: ~3.10.1
+    react-native-screens: ~3.11.0
     react-native-web: ~0.17.5
   languageName: unknown
   linkType: soft
@@ -13780,16 +13780,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-screens@npm:~3.10.1":
-  version: 3.10.1
-  resolution: "react-native-screens@npm:3.10.1"
+"react-native-screens@npm:~3.11.0":
+  version: 3.11.0
+  resolution: "react-native-screens@npm:3.11.0"
   dependencies:
     react-freeze: ^1.0.0
     warn-once: ^0.1.0
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: ab9e4ade4a4ef919ab0f4173653cf0334f4a28037f894758fa1bc4fd49e2029ad8ab391ab1b237b108fc3745a370ce88d9a9b30540aa1a800a18183599c5dc2a
+  checksum: 62433a773d121e85f8dc83abf549c05ad8dbec739d8541e09ef3e87e98692b4e279a874994a390c609d8c2870c2fb93af4dd6e2031d9822fc570d2939e83378f
   languageName: node
   linkType: hard
 
