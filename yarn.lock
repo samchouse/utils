@@ -4186,7 +4186,7 @@ __metadata:
     react: 17.0.2
     react-dom: 17.0.2
     react-native: "https://github.com/expo/react-native/archive/sdk-43.0.0.tar.gz"
-    react-native-safe-area-context: 3.4.0
+    react-native-safe-area-context: 3.4.1
     react-native-screens: ~3.12.0
     react-native-web: ~0.17.5
   languageName: unknown
@@ -14287,13 +14287,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-safe-area-context@npm:3.4.0":
-  version: 3.4.0
-  resolution: "react-native-safe-area-context@npm:3.4.0"
+"react-native-safe-area-context@npm:3.4.1":
+  version: 3.4.1
+  resolution: "react-native-safe-area-context@npm:3.4.1"
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: 362ffc3b150902158708883c00be7619448a76bde8d22c87cc4159c3e8bf7697277cd07a89bf0583aafcaa0da820cbef107d27f6d38ac3027bdbd12c9c90e881
+  checksum: 86a0614c5bef60ff8e056cff3fd4200cc6d181653cb6c26992ab62061792474f4872d1f5d394234ec6da75ce8b2960c930f4d6a1b6af3b6579cf1c30b6d64bb5
   languageName: node
   linkType: hard
 
