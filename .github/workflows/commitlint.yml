@@ -5,6 +5,11 @@ on: [pull_request]
 jobs:
   commitlint:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [17.6.0]
+
     steps:
       - uses: actions/checkout@v2
         with:
