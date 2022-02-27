@@ -20,20 +20,20 @@
     "lint:prettier": "run r:prettier --write --ignore-path ../../.gitignore ."
   },
   "dependencies": {
-    "next": "12.0.7",
-    "next-seo": "^4.28.1",
+    "next": "12.1.0",
+    "next-seo": "^5.1.0",
     "nprogress": "^0.2.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "sass": "^1.44.0",
-    "sharp": "^0.29.3"
+    "sass": "^1.49.9",
+    "sharp": "^0.30.1"
   },
   "devDependencies": {
     "@types/nprogress": "^0.2.0",
-    "@types/react": "17.0.37",
-    "autoprefixer": "^10.4.0",
-    "eslint-config-next": "12.0.7",
-    "postcss": "^8.4.4",
-    "tailwindcss": "^3.0.0"
+    "@types/react": "17.0.39",
+    "autoprefixer": "^10.4.2",
+    "eslint-config-next": "12.1.0",
+    "postcss": "^8.4.7",
+    "tailwindcss": "^3.0.23"
   }
 }

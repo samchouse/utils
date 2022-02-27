@@ -5,13 +5,18 @@ on: [pull_request]
 jobs:
   commitlint:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [17.6.0]
+
     steps:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
 
       - name: Set up Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: yarn

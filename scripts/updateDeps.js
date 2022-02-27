@@ -27,20 +27,16 @@ const updateDeps = async () => {
 
   spinner = ora('Updating dependencies').start();
 
-  const install = Promise.resolve(
-    shell.exec('yarn', { cwd: process.cwd(), silent: true })
-  );
-  const updater = Promise.resolve(
-    Object.keys(updates).forEach(async (key) => {
-      const subUpdates = updates[key];
-      if (Object.entries(subUpdates).length > 0)
-        await run({
-          cwd: path.join(process.cwd(), path.dirname(key)),
-          upgrade: true
-        });
-    })
-  );
-  await updater.then(async () => install.then(() => spinner.stop()));
+  Object.keys(updates).forEach(async (key) => {
+    const subUpdates = updates[key];
+    if (Object.entries(subUpdates).length > 0)
+      await run({
+        cwd: path.join(process.cwd(), path.dirname(key)),
+        upgrade: true
+      });
+  });
+  shell.exec('yarn', { cwd: process.cwd(), silent: true });
+  spinner.stop();
 
   console.log = logger;
   console.log('Updated all dependencies successfully');
