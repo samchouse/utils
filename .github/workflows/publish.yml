@@ -89,7 +89,7 @@ jobs:
           expo-version: ${{ env.EXPO_CLI_VERSION }}
 
       - name: Restore Turtle Cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: turtle-cache
         with:
           path: ~/.turtle
