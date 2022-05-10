@@ -38,7 +38,7 @@
     "fastify-static": "^4.5.0",
     "ioredis": "^5.0.0",
     "lodash.escaperegexp": "^4.1.2",
-    "point-of-view": "^5.1.0",
+    "point-of-view": "^6.0.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.5.4"
