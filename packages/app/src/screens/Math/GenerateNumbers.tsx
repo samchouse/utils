@@ -13,6 +13,49 @@ import {
   View
 } from 'react-native';
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  text: {
+    fontSize: 20,
+    color: '#fff'
+  },
+  touchable: {
+    alignItems: 'center',
+    backgroundColor: '#3f58fc',
+    paddingVertical: 10,
+    width: '90%',
+    borderRadius: 5,
+    marginVertical: 5
+  },
+  input: {
+    maxHeight: 150,
+    marginBottom: 5,
+    borderWidth: 1,
+    padding: 10,
+    borderColor: '#C7C7CD',
+    borderRadius: 5,
+    width: '90%',
+    textAlign: 'center',
+    fontSize: 20,
+    paddingTop: 10
+  },
+  switch: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '91%',
+    padding: 3
+  },
+  switchText: {
+    fontSize: 22,
+    marginLeft: 10
+  }
+});
+
 const GenerateNumbers = () => {
   const [amount, setAmount] = useState('');
   const [min, setMin] = useState('');
@@ -77,14 +120,22 @@ const GenerateNumbers = () => {
                 numbers.sort((a, b) => a - b).join(', ')
               );
             } catch (err: any) {
-              if (err.message === 'Cannot have a bigger min than max')
-                Alert.alert('Oops, there was an error:', err.message as string);
+              if (
+                (err as Error).message === 'Cannot have a bigger min than max'
+              )
+                Alert.alert(
+                  'Oops, there was an error:',
+                  (err as Error).message
+                );
 
               if (
-                err.message ===
-                'Cannot have a bigger amount of possibilites than the range of numbers available'
+                (err as Error).message ===
+                'Cannot have a bigger amount of possibilities than the range of numbers available'
               )
-                Alert.alert('Oops, there was an error:', err.message as string);
+                Alert.alert(
+                  'Oops, there was an error:',
+                  (err as Error).message
+                );
             }
           }}
           activeOpacity={0.75}
@@ -98,46 +149,3 @@ const GenerateNumbers = () => {
 };
 
 export default GenerateNumbers;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  text: {
-    fontSize: 20,
-    color: '#fff'
-  },
-  touchable: {
-    alignItems: 'center',
-    backgroundColor: '#3f58fc',
-    paddingVertical: 10,
-    width: '90%',
-    borderRadius: 5,
-    marginVertical: 5
-  },
-  input: {
-    maxHeight: 150,
-    marginBottom: 5,
-    borderWidth: 1,
-    padding: 10,
-    borderColor: '#C7C7CD',
-    borderRadius: 5,
-    width: '90%',
-    textAlign: 'center',
-    fontSize: 20,
-    paddingTop: 10
-  },
-  switch: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    width: '91%',
-    padding: 3
-  },
-  switchText: {
-    fontSize: 22,
-    marginLeft: 10
-  }
-});

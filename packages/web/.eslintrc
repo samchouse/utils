@@ -4,11 +4,7 @@
     "next/core-web-vitals",
     "../../.eslintrc"
   ],
-  "parserOptions": {
-    "project": ["tsconfig.*?.json"]
-  },
-  "ignorePatterns": ["next-env.d.ts"],
   "rules": {
-    "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }]
+    "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }]
   }
 }

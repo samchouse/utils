@@ -13,16 +13,14 @@ Router.events.on('routeChangeStart', () => NProgress.start());
 Router.events.on('routeChangeComplete', () => NProgress.done());
 Router.events.on('routeChangeError', () => NProgress.done());
 
-const App = ({ Component, pageProps }: AppProps) => {
-  return (
-    <>
-      <Head>
-        <title>Utils - A Cool Repo</title>
-      </Head>
-      <DefaultSeo {...SEO} />
-      <Component {...pageProps} />
-    </>
-  );
-};
+const App = ({ Component, pageProps }: AppProps) => (
+  <>
+    <Head>
+      <title>Utils - A Cool Repo</title>
+    </Head>
+    <DefaultSeo {...SEO} />
+    <Component {...pageProps} />
+  </>
+);
 
 export default App;

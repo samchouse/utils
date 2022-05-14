@@ -34,48 +34,42 @@ const getMathHeaderTitle = (route: RouteProp<MainStackParamList, 'Math'>) => {
 };
 
 const MainStack = createNativeStackNavigator<MainStackParamList>();
-const MainNavigator: React.FC = () => {
-  return (
-    <MainStack.Navigator>
-      <MainStack.Screen name="Home" component={Home} />
-      <MainStack.Screen
-        name="Text"
-        component={TextNavigator}
-        options={({ route }) => ({
-          headerTitle: getTextHeaderTitle(route)
-        })}
-      />
-      <MainStack.Screen
-        name="Math"
-        component={MathNavigator}
-        options={({ route }) => ({
-          headerTitle: getMathHeaderTitle(route)
-        })}
-      />
-    </MainStack.Navigator>
-  );
-};
+const MainNavigator: React.FC = () => (
+  <MainStack.Navigator>
+    <MainStack.Screen name="Home" component={Home} />
+    <MainStack.Screen
+      name="Text"
+      component={TextNavigator}
+      options={({ route }) => ({
+        headerTitle: getTextHeaderTitle(route)
+      })}
+    />
+    <MainStack.Screen
+      name="Math"
+      component={MathNavigator}
+      options={({ route }) => ({
+        headerTitle: getMathHeaderTitle(route)
+      })}
+    />
+  </MainStack.Navigator>
+);
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
-const RootNavigator = () => {
-  return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Root" component={MainNavigator} />
-      <Stack.Screen
-        name="NotFound"
-        component={NotFound}
-        options={{ title: 'Oops!' }}
-      />
-    </Stack.Navigator>
-  );
-};
+const RootNavigator = () => (
+  <Stack.Navigator screenOptions={{ headerShown: false }}>
+    <Stack.Screen name="Root" component={MainNavigator} />
+    <Stack.Screen
+      name="NotFound"
+      component={NotFound}
+      options={{ title: 'Oops!' }}
+    />
+  </Stack.Navigator>
+);
 
-const Navigation = () => {
-  return (
-    <NavigationContainer>
-      <RootNavigator />
-    </NavigationContainer>
-  );
-};
+const Navigation = () => (
+  <NavigationContainer>
+    <RootNavigator />
+  </NavigationContainer>
+);
 
 export default Navigation;

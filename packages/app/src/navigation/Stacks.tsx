@@ -12,25 +12,21 @@ import WTF from '../screens/Text/WTF';
 import { MathStackParamList, TextStackParamList } from '../typings';
 
 const TextStack = createNativeStackNavigator<TextStackParamList>();
-export const TextNavigator: React.FC = () => {
-  return (
-    <TextStack.Navigator screenOptions={{ headerShown: false }}>
-      <TextStack.Screen name="Main" component={Text} />
-      <TextStack.Screen name="WTF" component={WTF} />
-      <TextStack.Screen name="Space" component={Space} />
-    </TextStack.Navigator>
-  );
-};
+export const TextNavigator: React.FC = () => (
+  <TextStack.Navigator screenOptions={{ headerShown: false }}>
+    <TextStack.Screen name="Main" component={Text} />
+    <TextStack.Screen name="WTF" component={WTF} />
+    <TextStack.Screen name="Space" component={Space} />
+  </TextStack.Navigator>
+);
 
 const MathStack = createNativeStackNavigator<MathStackParamList>();
-export const MathNavigator: React.FC = () => {
-  return (
-    <MathStack.Navigator screenOptions={{ headerShown: false }}>
-      <MathStack.Screen name="Main" component={Math} />
-      <MathStack.Screen name="GCF" component={GCF} />
-      <MathStack.Screen name="Factors Of" component={FactorsOf} />
-      <MathStack.Screen name="Product Sum" component={ProductSum} />
-      <MathStack.Screen name="Generate Numbers" component={GenerateNumbers} />
-    </MathStack.Navigator>
-  );
-};
+export const MathNavigator: React.FC = () => (
+  <MathStack.Navigator screenOptions={{ headerShown: false }}>
+    <MathStack.Screen name="Main" component={Math} />
+    <MathStack.Screen name="GCF" component={GCF} />
+    <MathStack.Screen name="Factors Of" component={FactorsOf} />
+    <MathStack.Screen name="Product Sum" component={ProductSum} />
+    <MathStack.Screen name="Generate Numbers" component={GenerateNumbers} />
+  </MathStack.Navigator>
+);

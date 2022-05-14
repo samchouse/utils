@@ -4,13 +4,11 @@ import React from 'react';
 
 import Navigation from './navigation';
 
-const App = () => {
-  return (
-    <>
-      <Navigation />
-      <StatusBar style="auto" />
-    </>
-  );
-};
+const App = () => (
+  <>
+    <Navigation />
+    <StatusBar style="auto" />
+  </>
+);
 
 export default registerRootComponent(App);

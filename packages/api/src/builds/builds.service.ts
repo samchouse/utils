@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { FastifyReply } from 'fastify';
 import { S3 } from 'aws-sdk';
-import { Redis } from 'ioredis';
+import { FastifyReply } from 'fastify';
+import Redis from 'ioredis';
 import escapeRegExp from 'lodash.escaperegexp';
 
 @Injectable()

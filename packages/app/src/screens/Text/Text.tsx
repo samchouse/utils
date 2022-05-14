@@ -8,31 +8,6 @@ import {
 
 import { TextNavigationProps } from '../../typings';
 
-const Text: React.FC<TextNavigationProps> = ({
-  navigation
-}: TextNavigationProps) => {
-  return (
-    <SafeAreaView style={styles.container}>
-      <TouchableOpacity
-        onPress={() => navigation.push('Text', { screen: 'WTF' })}
-        activeOpacity={0.75}
-        style={styles.touchable}
-      >
-        <RNText style={styles.text}>WTF</RNText>
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => navigation.push('Text', { screen: 'Space' })}
-        activeOpacity={0.75}
-        style={styles.touchable}
-      >
-        <RNText style={styles.text}>Space</RNText>
-      </TouchableOpacity>
-    </SafeAreaView>
-  );
-};
-
-export default Text;
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -53,3 +28,26 @@ const styles = StyleSheet.create({
     marginVertical: 5
   }
 });
+
+const Text: React.FC<TextNavigationProps> = ({
+  navigation
+}: TextNavigationProps) => (
+  <SafeAreaView style={styles.container}>
+    <TouchableOpacity
+      onPress={() => navigation.push('Text', { screen: 'WTF' })}
+      activeOpacity={0.75}
+      style={styles.touchable}
+    >
+      <RNText style={styles.text}>WTF</RNText>
+    </TouchableOpacity>
+    <TouchableOpacity
+      onPress={() => navigation.push('Text', { screen: 'Space' })}
+      activeOpacity={0.75}
+      style={styles.touchable}
+    >
+      <RNText style={styles.text}>Space</RNText>
+    </TouchableOpacity>
+  </SafeAreaView>
+);
+
+export default Text;

@@ -2,7 +2,7 @@
 
 const algebra = (
   equation: string | number,
-  // @ts-ignore
+  // @ts-expect-error
   _knownValues: { name: string; value: number }[]
 ) => {
   const isAlgebra = (equation: string) => {
