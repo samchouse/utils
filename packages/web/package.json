@@ -15,9 +15,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "run lint:eslint && run lint:prettier",
-    "lint:eslint": "next lint --fix --ignore-path ../../.gitignore",
-    "lint:prettier": "run r:prettier --write --ignore-path ../../.gitignore ."
+    "lint": "next lint --fix --ignore-path ../../.gitignore"
   },
   "dependencies": {
     "next": "12.1.6",

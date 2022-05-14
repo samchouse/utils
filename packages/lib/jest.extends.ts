@@ -1,44 +1,55 @@
 expect.extend({
-  toMatchRandom(received: number[], mocked: jest.Mock) {
-    if (received.length !== mocked.mock.calls[0][0])
+  toMatchRandom(
+    received: number[],
+    mocked: jest.Mock<
+      number[],
+      [
+        amount: number,
+        min: number,
+        max: number,
+        duplicates?: boolean | undefined
+      ]
+    >
+  ) {
+    if (received.length !== mocked.mock.calls[0]![0])
       return {
         pass: false,
         message: () =>
-          `Expected array length to be ${
-            mocked.mock.calls[0][0] as string
-          }, but got ${received.length}`
+          `Expected array length to be ${mocked.mock.calls[0]![0]}, but got ${
+            received.length
+          }`
       };
 
-    if (received.filter((num) => num < mocked.mock.calls[0][1]).length)
+    if (received.filter((num) => num < mocked.mock.calls[0]![1]).length)
       return {
         pass: false,
         message: () =>
           `Expected array to contain numbers greater than ${
-            mocked.mock.calls[0][1] as string
+            mocked.mock.calls[0]![1]
           }, but got ${received.filter(
-            (num) => num < mocked.mock.calls[0][1]
+            (num) => num < mocked.mock.calls[0]![1]
           )[0]!}`
       };
 
-    if (received.filter((num) => num > mocked.mock.calls[0][2]).length)
+    if (received.filter((num) => num > mocked.mock.calls[0]![2]).length)
       return {
         pass: false,
         message: () =>
           `Expected array to contain numbers less than ${
-            mocked.mock.calls[0][1] as string
+            mocked.mock.calls[0]![1]
           }, but got ${received.filter(
-            (num) => num < mocked.mock.calls[0][1]
+            (num) => num < mocked.mock.calls[0]![1]
           )[0]!}`
       };
 
-    if (mocked.mock.calls[0][3] && new Set(received).size !== received.length)
+    if (mocked.mock.calls[0]![3] && new Set(received).size !== received.length)
       return {
         pass: false,
         message: () =>
           `Expected array to contain numbers less than ${
-            mocked.mock.calls[0][1] as string
+            mocked.mock.calls[0]![1]
           }, but got ${received.filter(
-            (num) => num < mocked.mock.calls[0][1]
+            (num) => num < mocked.mock.calls[0]![1]
           )[0]!}`
       };
 

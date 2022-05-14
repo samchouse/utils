@@ -19,7 +19,6 @@ async function bootstrap() {
     methods: ['GET', 'POST', 'DELETE']
   });
 
-  // @ts-expect-error
   await app.register(fastifyHelmet);
 
   await app.listen(4200);
