@@ -1,0 +1,12 @@
+# ---------- Files ----------
+.env
+tailwind.css
+yarn-error.log
+
+# ---------- Directories ----------
+dist/
+.yarn/
+.next/
+.expo/
+coverage/
+node_modules/

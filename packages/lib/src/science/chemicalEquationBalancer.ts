@@ -32,7 +32,7 @@ const chemicalEquationBalancer = (equation: string) => {
 
     let initialEquationNum = 1;
     for (const initialValue of initialValues) {
-      const match = initialValue.match(/^\d+/);
+      const match = /^\d+/.exec(initialValue);
       const extraNum = match?.length ? match[0] : undefined;
       const extra = extraNum
         ? isNaN(parseInt(extraNum, 10))
@@ -92,7 +92,7 @@ const chemicalEquationBalancer = (equation: string) => {
 
     let finalEquationNum = 1;
     for (const finalValue of finalValues) {
-      const match = finalValue.match(/^\d+/);
+      const match = /^\d+/.exec(finalValue);
       const extraNum = match?.length ? match[0] : undefined;
       const extra = extraNum
         ? isNaN(parseInt(extraNum, 10))
@@ -152,6 +152,7 @@ const chemicalEquationBalancer = (equation: string) => {
   };
 
   const { initialValuesMap, finalValuesMap } = parse(equation);
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   if (!initialValuesMap || !finalValuesMap)
     return { balanced: false, message: 'Invalid equation' };
 
@@ -177,8 +178,8 @@ const chemicalEquationBalancer = (equation: string) => {
   )
     return { balanced: false, message: 'Invalid equation' };
 
-  const check = () => {
-    return initialValuesMap.filter(
+  const check = () =>
+    initialValuesMap.filter(
       (initial) =>
         !finalValuesMap.find((final) =>
           initial.atoms
@@ -192,7 +193,6 @@ const chemicalEquationBalancer = (equation: string) => {
             .includes(false)
         )
     );
-  };
 
   if (
     initialValuesMap.length === finalValuesMap.length &&
@@ -210,11 +210,12 @@ const chemicalEquationBalancer = (equation: string) => {
 
   while (balanced === 'Unbalanced') {
     const { initialValuesMap, finalValuesMap } = parse(equation);
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     if (!initialValuesMap || !finalValuesMap)
       return { balanced: false, message: 'Invalid equation' };
 
-    const check = () => {
-      return initialValuesMap.filter(
+    const check = () =>
+      initialValuesMap.filter(
         (initial) =>
           !finalValuesMap.find((final) =>
             initial.atoms
@@ -228,7 +229,6 @@ const chemicalEquationBalancer = (equation: string) => {
               .includes(false)
           )
       );
-    };
 
     if (
       initialValuesMap.length === finalValuesMap.length &&

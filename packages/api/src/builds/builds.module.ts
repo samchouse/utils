@@ -1,8 +1,9 @@
 import { Module } from '@nestjs/common';
-import { BuildsService } from './builds.service';
-import { BuildsController } from './builds.controller';
-import { S3Module } from '../s3/s3.module';
+
 import { RedisModule } from '../redis/redis.module';
+import { S3Module } from '../s3/s3.module';
+import { BuildsController } from './builds.controller';
+import { BuildsService } from './builds.service';
 
 @Module({
   imports: [RedisModule, S3Module],

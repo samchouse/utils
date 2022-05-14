@@ -16,12 +16,10 @@
     "watch": "run r:tsc --watch --project tsconfig.build.json",
     "test": "run r:jest",
     "test:watch": "run r:jest --watchAll --coverage=false",
-    "lint": "run lint:eslint && run lint:prettier",
-    "lint:eslint": "run r:eslint --fix --ignore-path ../../.gitignore --ext .js,.ts .",
-    "lint:prettier": "run r:prettier --write --ignore-path ../../.gitignore ."
+    "lint": "run r:eslint --fix --ignore-path ../../.gitignore --ext .js,.ts ."
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-env": "^7.17.10",
     "@babel/preset-typescript": "^7.16.7"
   }
 }

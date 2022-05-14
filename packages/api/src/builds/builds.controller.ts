@@ -1,5 +1,6 @@
-import { Res, Controller, Get, Param, Delete, UseGuards } from '@nestjs/common';
+import { Controller, Delete, Get, Param, Res, UseGuards } from '@nestjs/common';
 import { FastifyReply } from 'fastify';
+
 import { AdminGuard } from '../guard/admin.guard';
 import { BuildsService } from './builds.service';
 

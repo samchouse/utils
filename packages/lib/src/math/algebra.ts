@@ -2,7 +2,6 @@
 
 const algebra = (
   equation: string | number,
-  // @ts-ignore
   _knownValues: { name: string; value: number }[]
 ) => {
   const isAlgebra = (equation: string) => {
@@ -12,7 +11,7 @@ const algebra = (
   };
 
   if (typeof equation === 'number') return equation;
-  if (!isAlgebra(equation)) return eval(equation);
+  if (!isAlgebra(equation)) return eval(equation) as number;
 
   const brackets = equation.match(/\([\w\+\-\*\/]+\)/g);
   if (brackets) return brackets;
