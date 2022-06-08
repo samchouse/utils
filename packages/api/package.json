@@ -33,7 +33,7 @@
     "aws-sdk": "^2.1135.0",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
-    "fastify": "^3.29.0",
+    "fastify": "^4.0.0",
     "ioredis": "^5.0.4",
     "lodash.escaperegexp": "^4.1.2",
     "point-of-view": "^6.0.0",
