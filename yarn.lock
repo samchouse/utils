@@ -4163,7 +4163,7 @@ __metadata:
     react-native: "https://github.com/expo/react-native/archive/sdk-45.0.0.tar.gz"
     react-native-safe-area-context: 4.3.1
     react-native-screens: ~3.13.1
-    react-native-web: ~0.17.7
+    react-native-web: ~0.18.0
   languageName: unknown
   linkType: soft
 
@@ -4840,13 +4840,6 @@ __metadata:
   version: 0.0.1
   resolution: "array-filter@npm:0.0.1"
   checksum: 0e9afdf5e248c45821c6fe1232071a13a3811e1902c2c2a39d12e4495e8b0b25739fd95bffbbf9884b9693629621f6077b4ae16207b8f23d17710fc2465cebbb
-  languageName: node
-  linkType: hard
-
-"array-find-index@npm:^1.0.2":
-  version: 1.0.2
-  resolution: "array-find-index@npm:1.0.2"
-  checksum: aac128bf369e1ac6c06ff0bb330788371c0e256f71279fb92d745e26fb4b9db8920e485b4ec25e841c93146bf71a34dcdbcefa115e7e0f96927a214d237b7081
   languageName: node
   linkType: hard
 
@@ -9680,7 +9673,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hyphenate-style-name@npm:^1.0.2, hyphenate-style-name@npm:^1.0.4":
+"hyphenate-style-name@npm:^1.0.2":
   version: 1.0.4
   resolution: "hyphenate-style-name@npm:1.0.4"
   checksum: 4f5bf4b055089754924babebaa23c17845937bcca6aee95d5d015f8fa1e6814279002bd6a9e541e3fac2cd02519fc76305396727066c57c8e21a7e73e7a12137
@@ -14916,21 +14909,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-web@npm:~0.17.7":
-  version: 0.17.7
-  resolution: "react-native-web@npm:0.17.7"
+"react-native-web@npm:~0.18.0":
+  version: 0.18.0
+  resolution: "react-native-web@npm:0.18.0"
   dependencies:
-    array-find-index: ^1.0.2
     create-react-class: ^15.7.0
     fbjs: ^3.0.0
-    hyphenate-style-name: ^1.0.4
     inline-style-prefixer: ^6.0.0
     normalize-css-color: ^1.0.2
+    postcss-value-parser: ^4.2.0
     prop-types: ^15.6.0
+    styleq: 0.1.0
   peerDependencies:
-    react: ">=17.0.1"
-    react-dom: ">=17.0.1"
-  checksum: 9a32073d18e12f7d0e77befc0489f07a60e4aea9b7d6da9228387f488956b8f3e04eff02102f70bc427d8ee5047b6f393dc6cb4b3d34501504b9799344054e34
+    react: ">=17.0.2"
+    react-dom: ">=17.0.2"
+  checksum: 951f9e2a37953eb857f0901efd776f97532ab6cb7d58fea754a5edb7bfc25e8232cf9835e56cb7d67d824031c9ff87eba7380e1b801f8d46a0a03b472e5846fa
   languageName: node
   linkType: hard
 
@@ -16776,6 +16769,13 @@ __metadata:
     babel-plugin-macros:
       optional: true
   checksum: 86d55819ebeabd283a574d2f44f7d3f8fa6b8c28fa41687ece161bf1e910e04965611618921d8f5cd33dc6dae1033b926a70421ae5ea045440a9861edc3e0d87
+  languageName: node
+  linkType: hard
+
+"styleq@npm:0.1.0":
+  version: 0.1.0
+  resolution: "styleq@npm:0.1.0"
+  checksum: 19ad4fd866deda82a6a41a450e229bb68487ed0e5c1e646cde25103dbb788034891ad8dcf2faa68c09566c632303efaa83067346848a9d76a26b5b994f9bd413
   languageName: node
   linkType: hard
 
