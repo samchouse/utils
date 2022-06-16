@@ -24,4 +24,4 @@ jobs:
       - name: Install Dependencies
         run: yarn --immutable
 
-      - uses: wagoid/commitlint-github-action@v4
+      - uses: wagoid/commitlint-github-action@v5
