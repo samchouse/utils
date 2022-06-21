@@ -37,7 +37,7 @@
     "@babel/preset-env": "^7.17.10",
     "@expo/metro-config": "^0.3.17",
     "@types/react": "~18.0.0",
-    "@types/react-native": "~0.67.7",
+    "@types/react-native": "~0.68.0",
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.5.0"
   }
