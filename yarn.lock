@@ -3826,12 +3826,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-native@npm:~0.67.7":
-  version: 0.67.7
-  resolution: "@types/react-native@npm:0.67.7"
+"@types/react-native@npm:~0.68.0":
+  version: 0.68.0
+  resolution: "@types/react-native@npm:0.68.0"
   dependencies:
     "@types/react": "*"
-  checksum: 28f5bdfb4463e5cbcbaa842674ae0b4640bf1f829a6dc650d879e4e7d326b9dd9146e18ce82264289a6a22b4f844746ccba95c3c2e9daf49d5a0548f1741695b
+  checksum: 00d089003c28496209050285ea21c16673e24533522093a318c818fa874534c8c05c0a933c2d44b1e7b8302c9ecff6bb778889e70b749b02a539641696dc34b2
   languageName: node
   linkType: hard
 
@@ -4151,7 +4151,7 @@ __metadata:
     "@react-navigation/native": ^6.0.10
     "@react-navigation/native-stack": ^6.6.2
     "@types/react": ~18.0.0
-    "@types/react-native": ~0.67.7
+    "@types/react-native": ~0.68.0
     "@utils/lib": "workspace:^"
     eslint-plugin-react: ^7.29.4
     eslint-plugin-react-hooks: ^4.5.0
