@@ -1,13 +1,14 @@
 # ---------- Files ----------
 .env
+.pnp.*
 tailwind.css
 yarn-error.log
 
 # ---------- Directories ----------
 dist/
-.yarn/
 .next/
 .expo/
+.yarn/*
 coverage/
 !.yarn/sdks/
 node_modules/
