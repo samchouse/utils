@@ -2288,6 +2288,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@expo/config-plugins@npm:~5.0.1":
+  version: 5.0.1
+  resolution: "@expo/config-plugins@npm:5.0.1"
+  dependencies:
+    "@expo/config-types": ^46.0.0
+    "@expo/json-file": 8.2.36
+    "@expo/plist": 0.0.18
+    "@expo/sdk-runtime-versions": ^1.0.0
+    "@react-native/normalize-color": ^2.0.0
+    chalk: ^4.1.2
+    debug: ^4.3.1
+    find-up: ~5.0.0
+    getenv: ^1.0.0
+    glob: 7.1.6
+    resolve-from: ^5.0.0
+    semver: ^7.3.5
+    slash: ^3.0.0
+    xcode: ^3.0.1
+    xml2js: 0.4.23
+  checksum: bd7139ba8728e7117aaa1ae056190ed69bfde707286d13ef2fe26201381753e6d2066a223eb69547825ab1469c253a75f2e73fad82021b2a7589bb98fd8bf8bb
+  languageName: node
+  linkType: hard
+
 "@expo/config-types@npm:^45.0.0":
   version: 45.0.0
   resolution: "@expo/config-types@npm:45.0.0"
@@ -2299,6 +2322,13 @@ __metadata:
   version: 46.0.1
   resolution: "@expo/config-types@npm:46.0.1"
   checksum: 2f5b1b03d4636893f406fb934ef76e9ed0b71161bc27f2c53e94223525655111b60ed83e803065f666cca88d2d11e38f604b5513efd641805a9bde4a852b06cb
+  languageName: node
+  linkType: hard
+
+"@expo/config-types@npm:^46.0.1":
+  version: 46.0.2
+  resolution: "@expo/config-types@npm:46.0.2"
+  checksum: ea7b3c64e875dfe65209e5f099b3ef4ddc464f308aff50ba08c26c1dfc3d3c177203190b29b5d7dd334932d74f765690c44829d637d7a71a72078214c69a07ab
   languageName: node
   linkType: hard
 
@@ -2337,6 +2367,25 @@ __metadata:
     slugify: ^1.3.4
     sucrase: ^3.20.0
   checksum: e061decfc47b8bf144c54b34f788c244f2befa31604c9370eeae281d8e64a22cedf30f5d10d33be612ddc711a0c86cd6c25c14da068c51e50c3f2dd0bd8e4e49
+  languageName: node
+  linkType: hard
+
+"@expo/config@npm:7.0.1":
+  version: 7.0.1
+  resolution: "@expo/config@npm:7.0.1"
+  dependencies:
+    "@babel/code-frame": ~7.10.4
+    "@expo/config-plugins": ~5.0.1
+    "@expo/config-types": ^46.0.1
+    "@expo/json-file": 8.2.36
+    getenv: ^1.0.0
+    glob: 7.1.6
+    require-from-string: ^2.0.2
+    resolve-from: ^5.0.0
+    semver: 7.3.2
+    slugify: ^1.3.4
+    sucrase: ^3.20.0
+  checksum: 151bae8703af6cf0e41b3cbb8ab0ce3597be58d38242b7e831fa4b3622e7822ad2ff8549482c1cad1ffaf69dd4b2e972ca6dfc37020001d2b9ffc5d5587bbd70
   languageName: node
   linkType: hard
 
@@ -2412,7 +2461,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@expo/metro-config@npm:0.3.17, @expo/metro-config@npm:^0.3.17":
+"@expo/metro-config@npm:0.3.17":
   version: 0.3.17
   resolution: "@expo/metro-config@npm:0.3.17"
   dependencies:
@@ -2425,6 +2474,22 @@ __metadata:
     resolve-from: ^5.0.0
     sucrase: ^3.20.0
   checksum: 238d4b1f628d3d90e271a191bc5a401b13867ef096ce250d4f3ace8a6ff9ab527d274b5f203a739ddb9b19cdc13e2e3c761b36f67b6fb42fd12cc7dbe7e2669a
+  languageName: node
+  linkType: hard
+
+"@expo/metro-config@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "@expo/metro-config@npm:0.4.0"
+  dependencies:
+    "@expo/config": 7.0.1
+    "@expo/json-file": 8.2.36
+    chalk: ^4.1.0
+    debug: ^4.3.2
+    find-yarn-workspace-root: ~2.0.0
+    getenv: ^1.0.0
+    resolve-from: ^5.0.0
+    sucrase: ^3.20.0
+  checksum: 8f571dd36c9eafed15ff709183eaa18bd5b92c1f9a5f367e245913c862d1fd6084812351d34260ed293c967a83bc230774d6e148f1947c495a0fd5b815e75aba
   languageName: node
   linkType: hard
 
@@ -4542,7 +4607,7 @@ __metadata:
   dependencies:
     "@babel/core": ^7.17.10
     "@babel/preset-env": ^7.17.10
-    "@expo/metro-config": ^0.3.17
+    "@expo/metro-config": ^0.4.0
     "@react-navigation/native": ^6.0.10
     "@react-navigation/native-stack": ^6.6.2
     "@types/react": ~18.0.0
