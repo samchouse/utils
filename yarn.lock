@@ -4698,7 +4698,7 @@ __metadata:
     lodash.escaperegexp: ^4.1.2
     point-of-view: ^6.0.0
     reflect-metadata: ^0.1.13
-    rimraf: ^3.0.2
+    rimraf: ^4.0.0
     rxjs: ^7.5.5
     source-map-support: ^0.5.21
     supertest: ^6.2.3
@@ -16286,6 +16286,15 @@ __metadata:
   bin:
     rimraf: ./bin.js
   checksum: cdc7f6eacb17927f2a075117a823e1c5951792c6498ebcce81ca8203454a811d4cf8900314154d3259bb8f0b42ab17f67396a8694a54cae3283326e57ad250cd
+  languageName: node
+  linkType: hard
+
+"rimraf@npm:^4.0.0":
+  version: 4.0.4
+  resolution: "rimraf@npm:4.0.4"
+  bin:
+    rimraf: dist/cjs/src/bin.js
+  checksum: a3296ea15c79fe3da0bae06a484dd8b8ec1e6d3044b02f05ce27575ef23c856e37eef6e71a668ce0e263da594a05ace1e88be6f42200f1fbbf433b57121bae32
   languageName: node
   linkType: hard
 
