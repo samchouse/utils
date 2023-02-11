@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@types/nprogress": "^0.2.0",
-    "@types/react": "18.0.27",
+    "@types/react": "18.0.28",
     "autoprefixer": "^10.4.7",
     "eslint-config-next": "13.1.6",
     "postcss": "^8.4.13",
