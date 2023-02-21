@@ -33,7 +33,7 @@ jobs:
           cache: yarn
 
       - name: Install Expo CLI
-        uses: expo/expo-github-action@v7
+        uses: expo/expo-github-action@v8
         with:
           expo-cache: true
           token: ${{ secrets.EXPO_TOKEN }}
@@ -82,7 +82,7 @@ jobs:
           java-version: ${{ matrix.java-version }}
 
       - name: Install Expo CLI
-        uses: expo/expo-github-action@v7
+        uses: expo/expo-github-action@v8
         with:
           expo-cache: true
           token: ${{ secrets.EXPO_TOKEN }}
