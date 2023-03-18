@@ -67,14 +67,14 @@ export class BuildsService {
         (b.LastModified?.getTime() ?? 0) - (a.LastModified?.getTime() ?? 0)
     )[0];
 
-    if (!build || !build.Key) return this.send404(res, 'No builds found');
+    if (!build?.Key) return this.send404(res, 'No builds found');
 
     const file = await this.s3
       .getObject({ Bucket: 'xenfo-utils', Key: build.Key })
       .promise()
       .catch(() => null);
 
-    if (!file || !file.Body) return this.send404(res, 'Could not fetch build');
+    if (!file?.Body) return this.send404(res, 'Could not fetch build');
 
     await this.redis.set(
       `android-latest:${build.Key}`,
@@ -120,14 +120,14 @@ export class BuildsService {
         (b.LastModified?.getTime() ?? 0) - (a.LastModified?.getTime() ?? 0)
     ).filter((a) => a.Key && a.Key.search(escapeRegExp(hash)) !== -1)[0];
 
-    if (!build || !build.Key) return this.send404(res, 'No builds found');
+    if (!build?.Key) return this.send404(res, 'No builds found');
 
     const file = await this.s3
       .getObject({ Bucket: 'xenfo-utils', Key: build.Key })
       .promise()
       .catch(() => null);
 
-    if (!file || !file.Body) return this.send404(res, 'Could not fetch build');
+    if (!file?.Body) return this.send404(res, 'Could not fetch build');
 
     await this.redis.set(
       `android:${build.Key}`,
@@ -163,14 +163,14 @@ export class BuildsService {
         (b.LastModified?.getTime() ?? 0) - (a.LastModified?.getTime() ?? 0)
     )[0];
 
-    if (!build || !build.Key) return this.send404(res, 'No builds found');
+    if (!build?.Key) return this.send404(res, 'No builds found');
 
     const file = await this.s3
       .getObject({ Bucket: 'xenfo-utils', Key: build.Key })
       .promise()
       .catch(() => null);
 
-    if (!file || !file.Body) return this.send404(res, 'Could not fetch build');
+    if (!file?.Body) return this.send404(res, 'Could not fetch build');
 
     await this.redis.set(
       `android-latest:${build.Key}`,
@@ -204,7 +204,7 @@ export class BuildsService {
         (b.LastModified?.getTime() ?? 0) - (a.LastModified?.getTime() ?? 0)
     ).filter((a) => a.Key && a.Key.search(escapeRegExp(hash)) !== -1)[0];
 
-    if (!build || !build.Key) return this.send404(res, 'No builds found');
+    if (!build?.Key) return this.send404(res, 'No builds found');
 
     const file = await this.s3
       .deleteObject({ Bucket: 'xenfo-utils', Key: build.Key })
