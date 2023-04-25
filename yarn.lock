@@ -5436,25 +5436,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:18.0.38":
-  version: 18.0.38
-  resolution: "@types/react@npm:18.0.38"
+"@types/react@npm:18.2.0, @types/react@npm:~18.2.0":
+  version: 18.2.0
+  resolution: "@types/react@npm:18.2.0"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: 34481c79f4f7ea2aefbaa45281319dc183200230d932d968463eba1643bd3635073d0a17c5c613150a69e36ca18b811ecffafea6384fa3dff3b5203866339d69
-  languageName: node
-  linkType: hard
-
-"@types/react@npm:~18.0.0":
-  version: 18.0.10
-  resolution: "@types/react@npm:18.0.10"
-  dependencies:
-    "@types/prop-types": "*"
-    "@types/scheduler": "*"
-    csstype: ^3.0.2
-  checksum: 333c99bd46cc2190ec6f6e4f3fa6cdee07e1d4d028fb2bd895d3927d9de6e86ede57befdc79d9acbfb7b1c058091bf3b38b8de3703f83e0f8cd8d15d7457b3d8
+  checksum: db3d92b423150222a666329f7aa3023e3e942044700557b8a7d161530847e621aec9f56c9e7f71761b06dd164c8a7b17ad52355863efe80963dffa5537e8e5fd
   languageName: node
   linkType: hard
 
@@ -5820,7 +5809,7 @@ __metadata:
     "@expo/metro-config": ^0.7.0
     "@react-navigation/native": ^6.0.10
     "@react-navigation/native-stack": ^6.6.2
-    "@types/react": ~18.0.0
+    "@types/react": ~18.2.0
     "@types/react-native": ~0.71.0
     "@utils/lib": "workspace:^"
     eslint-plugin-react: ^7.29.4
@@ -5851,7 +5840,7 @@ __metadata:
   resolution: "@utils/web@workspace:packages/web"
   dependencies:
     "@types/nprogress": ^0.2.0
-    "@types/react": 18.0.38
+    "@types/react": 18.2.0
     autoprefixer: ^10.4.7
     eslint-config-next: 13.3.1
     next: 13.3.1
