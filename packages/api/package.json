@@ -23,7 +23,7 @@
     "services:down": "docker-compose -f docker/docker-compose.yml --env .env down"
   },
   "dependencies": {
-    "@fastify/helmet": "^10.0.0",
+    "@fastify/helmet": "^11.0.0",
     "@fastify/static": "^6.0.0",
     "@nestjs/common": "^10.0.0",
     "@nestjs/config": "^3.0.0",

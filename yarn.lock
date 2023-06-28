@@ -3754,13 +3754,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fastify/helmet@npm:^10.0.0":
-  version: 10.0.0
-  resolution: "@fastify/helmet@npm:10.0.0"
+"@fastify/helmet@npm:^11.0.0":
+  version: 11.0.0
+  resolution: "@fastify/helmet@npm:11.0.0"
   dependencies:
     fastify-plugin: ^4.2.1
-    helmet: ^6.0.0
-  checksum: 6bf9d6e7baeaffa5622797d9afd47a2ea562f26a84058d8122c6d631847471a7e78ba0ed59813ce738608dce130576a4c1b0838a37a0cb320c39242173f30c8a
+    helmet: ^7.0.0
+  checksum: 36a5d1eb3893ba32f9e421680263f18d9ebea76016a340161ff45b87b9a5a5d74b71626eb8a8da8dfac034ce31197b4af8d0434d8d5593711290493d33797719
   languageName: node
   linkType: hard
 
@@ -5864,7 +5864,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@utils/api@workspace:packages/api"
   dependencies:
-    "@fastify/helmet": ^10.0.0
+    "@fastify/helmet": ^11.0.0
     "@fastify/static": ^6.0.0
     "@nestjs/cli": ^10.0.0
     "@nestjs/common": ^10.0.0
@@ -11980,10 +11980,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"helmet@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "helmet@npm:6.0.0"
-  checksum: 0dd89d5b77c5334e815f5d29376ca7af0ad1007136890f497be3455d9ed9734e7203e13d9931e29e4d2ced1c632c52440f16d2a02e8835fd8b8706a12052faad
+"helmet@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "helmet@npm:7.0.0"
+  checksum: 3622b8b68b7ac4736369fe7717adb5b87ddcdcda7c11c13277d79fb5670acab032e8c971835565b1d2144d234f3e0dbcd327a44249b9e61f0f64c0c753faf1bc
   languageName: node
   linkType: hard
 
