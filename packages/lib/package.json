@@ -19,7 +19,7 @@
     "lint": "run r:eslint --fix --ignore-path ../../.gitignore --ext .js,.ts ."
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.17.10",
-    "@babel/preset-typescript": "^7.16.7"
+    "@babel/preset-env": "^7.22.9",
+    "@babel/preset-typescript": "^7.22.5"
   }
 }
