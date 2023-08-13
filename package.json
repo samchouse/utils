@@ -48,7 +48,7 @@
     "inquirer": "^9.2.8",
     "is-ci": "^3.0.1",
     "jest": "^29.6.1",
-    "lint-staged": "^13.2.3",
+    "lint-staged": "^14.0.0",
     "npm-check-updates": "^16.10.17",
     "ora": "^7.0.0",
     "prettier": "^2.8.8",
