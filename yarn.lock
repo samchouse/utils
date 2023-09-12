@@ -7155,8 +7155,8 @@ __metadata:
     eslint-plugin-react: ^7.29.4
     eslint-plugin-react-hooks: ^4.5.0
     expo: ~49.0.0
-    expo-clipboard: ~4.3.0
-    expo-status-bar: ~1.6.0
+    expo-clipboard: ~4.5.0
+    expo-status-bar: ~1.7.0
     react: 18.2.0
     react-dom: 18.2.0
     react-native: "https://github.com/expo/react-native/archive/sdk-45.0.0.tar.gz"
@@ -11718,12 +11718,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expo-clipboard@npm:~4.3.0":
-  version: 4.3.0
-  resolution: "expo-clipboard@npm:4.3.0"
+"expo-clipboard@npm:~4.5.0":
+  version: 4.5.0
+  resolution: "expo-clipboard@npm:4.5.0"
   peerDependencies:
     expo: "*"
-  checksum: 7e278de9cb7eba88d78e42aec5c5f6c66cec2c5cdf9935a2ea15459e6192d9297e232c63f2926e6091d017fd1a51b2a96cf600e8961579264fb7d4ca882f7590
+  checksum: b4eae276570a53b46716afdf673e554a377656846fca4989ff9e625f4bbd2bc63309eec19b24daf426459177e9048fa5f9195196674cccbcabf8dd56bee84e51
   languageName: node
   linkType: hard
 
@@ -11796,10 +11796,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expo-status-bar@npm:~1.6.0":
-  version: 1.6.0
-  resolution: "expo-status-bar@npm:1.6.0"
-  checksum: e9fe7eeac4dfb3a534d79b6fa0df2a3d2e4c69edeb3573e408ca8d3b7d192627b3f9638c8f656bea9af0a6660f27c99c5da504a508294893dbe359ad5f1d6ab3
+"expo-status-bar@npm:~1.7.0":
+  version: 1.7.1
+  resolution: "expo-status-bar@npm:1.7.1"
+  checksum: 9e19b598712475375e8b27b764d8f5227008ecf74d9a0f2e51aee158e498eb0d196ceb7f9befe94b4124dc91c359d3e9d51d1eb84f64042286f894ec25700663
   languageName: node
   linkType: hard
 
